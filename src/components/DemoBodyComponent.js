@@ -3,7 +3,7 @@ import DrinkItemList from './DrinkItemList'
 import NonVegItemList from './NonVegItemList'
 import VegItemList from './VegItemList'
 import APICalls from '../services/APICalls';
-import img1 from '../images/pic1.jpg'
+import img1 from '/images/pic1.jpg'
 
 export default class DemoBodyComponent extends Component {
   constructor(props) {
