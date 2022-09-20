@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import APICalls from '../services/APICalls';
-import OrderDetailsCoomponent from './OrderDetailsCoomponent';
+import OrderDetailsCoomponent from './medicalProject/OrderDetailsCoomponent';
 
 const ShowTable = (props) => {
         const { formData } = props;

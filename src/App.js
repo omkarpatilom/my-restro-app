@@ -1,20 +1,21 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CartDetails from './components/CartDetails';
+import DemoBodyComponent from './components/DemoBodyComponent';
+import DrinkItemList from './components/DrinkItemList';
+import NonVegItemList from './components/NonVegItemList';
+import ParentOne from './components/ParentOne';
+import RestroNavigation from './components/RestroNavigation';
+import VegItemList from './components/VegItemList';
 
 
-import ChildOne from './components/DemoComponents/ChildOne';
-import ChildTwo from './components/DemoComponents/ChildTwo';
-import ParentOne from './components/RestaurentProject/ParentOne';
-import RestroNavigation from './components/RestaurentProject/RestroNavigation';
+function App() {
+  return (
+    <div style={{ "backgroundColor": "yellow" }}>
+      <Router>
+        {/* <HeaderComponent /> */}
 
-
-    function App() {
-      return (
-        <div style={{"backgroundColor": "yellow"}}>
-        <Router>
-              {/* <HeaderComponent /> */}
-                
-                    <Routes> 
-                    {/* <Route path="/dashboard" element={<DashBoard/>} />
+        <Routes>
+          {/* <Route path="/dashboard" element={<DashBoard/>} />
                     <Route path="/login" element={<LoginComponent/>} />
                     <Route path="/create" element={<CreateComponent/>} />
                     <Route path="/getAll" element={<GetAllComponent/>} />
@@ -26,23 +27,25 @@ import RestroNavigation from './components/RestaurentProject/RestroNavigation';
                     <Route path="/menu" element={<MenuComponent/>} />
                     <Route path="/order" element={<OrderDetailsCoomponent/>} />
                     <Route path="/table" element={<ShowTable/>} /> */}
-                    <Route path="/" element={<ParentOne/>} />
-                    <Route path="/RestrNav" element={<RestroNavigation/>} />
-                    <Route path="/vegItemsList" element={<VegItemList></VegItemList>}/>
-                    <Route path="/nonVegItemsList" element={<ChildTwo/>} />
-                    <Route path="/two" element={<ChildTwo/>} />
-                    <Route path="/two" element={<ChildTwo/>} />
+          <Route path="/" element={<ParentOne />} />
+          <Route path="/RestrNav" element={<RestroNavigation />} />
+          <Route path="/vegItemsList" element={<VegItemList />} />
+          <Route path="/nonVegItemsList" element={<NonVegItemList />} />
+          <Route path="/drinkItemsList" element={<DrinkItemList />} />
+          <Route path="/cart" element={<CartDetails />} />
+          <Route path="/demo" element={<DemoBodyComponent />} />
 
-                    </Routes>
-                
-              {/* <FooterComponent /> */}
-        </Router>
-   
-        
-        
-        
+
+        </Routes>
+
+        {/* <FooterComponent /> */}
+      </Router>
+
+
+
+
     </div>
 
-      );
-    }
-    export default App;
+  );
+}
+export default App;
