@@ -1,36 +1,32 @@
 import React, { Component } from 'react'
 import BodyComponent from './BodyComponent';
-import RestroFooter from './RestroFooter';
-import RestroNavigation from './RestroNavigation';
+import img3 from '../images/pic3.jpg'
 
+<img className="card-img-top" src={img3}
+                                        alt="Card image cap" />
 
 export default class ParentOne extends Component {
+    
     constructor(props) {
         super(props)
 
         this.state = {
             first: "nikhil",
-            flag: false,
-            flag1: false
+            flag: false
         }
     }
-    showHide(e) {
-        this.setState({ flag: true, flag1: true })
-    }
+
+    componentDidMount() {
+        const colorValue= this.context
+    
+        console.log(colorValue) //  "white" 
+      }
+      
+    
     render() {
-        let { flag1 } = this.state;
+      
         return (
-            <div>
-                <RestroNavigation></RestroNavigation>
-                <BodyComponent></BodyComponent>
-                <RestroFooter></RestroFooter>
-                
-                
-
-
-
-
-
+            <div style={{"backgroundImage":""}}><BodyComponent></BodyComponent>
             </div>
         )
     }

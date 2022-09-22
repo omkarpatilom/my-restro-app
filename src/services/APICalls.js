@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const EMPLOYEE_API_BASE_URL = "http://localhost:3434/getAllItems";
+
 const headers = {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': 'http://localhost:3434',
@@ -8,36 +8,49 @@ const headers = {
 }
 class APICalls {
 
-    getAllItems(){
-        return axios.get("http://localhost:3434/getAllItems",{ headers, mode: 'no-cors', });
+    getAllItems() {
+        return axios.get("http://localhost:3434/getAllItems", { headers, mode: 'no-cors', });
     }
-    getAllVegItems(){
-        return axios.get("http://localhost:3434/getAllVegItems",{ headers, mode: 'no-cors', });
-    }
-
-    getAllNonVegItems(){
-        return axios.get("http://localhost:3434/getAllNonVegItems",{ headers, mode: 'no-cors', });
+    getAllVegItems() {
+        return axios.get("http://localhost:3434/getAllVegItems", { headers, mode: 'no-cors', });
     }
 
-    getAllIColdDrinktems(){
-        return axios.get("http://localhost:3434/getAllIColdDrinktems",{ headers, mode: 'no-cors', });
+    getAllNonVegItems() {
+        return axios.get("http://localhost:3434/getAllNonVegItems", { headers, mode: 'no-cors', });
     }
 
-    createEmployee(employee){
-        return axios.post(EMPLOYEE_API_BASE_URL, employee);
+    getAllIColdDrinktems() {
+        return axios.get("http://localhost:3434/getAllIColdDrinktems", { headers, mode: 'no-cors', });
     }
 
-    getEmployeeById(employeeId){
-        return axios.get(EMPLOYEE_API_BASE_URL + '/' + employeeId);
+    createOrder(employee) {
+        console.log(employee);
+        return axios.post("http://localhost:3434/createOrder", employee, { headers, mode: 'no-cors', });
     }
 
-    updateEmployee(employee, employeeId){
-        return axios.put(EMPLOYEE_API_BASE_URL + '/' + employeeId, employee);
+    getAllOrdersByCusID(employeeId) {
+        console.log(employeeId);
+        return axios.get("http://localhost:3434/getAllOrdersByCusID/" + employeeId, { headers, mode: 'no-cors', });
     }
 
-    deleteEmployee(employeeId){
-        return axios.delete(EMPLOYEE_API_BASE_URL + '/' + employeeId);
+    getAllOrders() {
+        return axios.get("http://localhost:3434/getAllOrders", { headers, mode: 'no-cors', });
     }
+
+    getAllPaidUnpaidOrders() {
+        return axios.get("http://localhost:3434/getAllOrders", { headers, mode: 'no-cors', });
+    }
+
+    login(employee) {
+        console.log('===>', employee);
+        return axios.post("http://localhost:3434/login", employee, { headers, mode: 'no-cors', });
+    }
+
+
+    payNow(id) {
+        return axios.get("http://localhost:3434/payNow/" + id, { headers, mode: 'no-cors', });
+    }
+
 }
 
 export default new APICalls()
