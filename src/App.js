@@ -23,7 +23,7 @@ import AllOrders from './components/AllOrders';
 import LoginErrorPage from './components/LoginErrorPage';
 import Register from './components/Register';
 import HeaderComponent from './HeaderComponent';
-import SlideShow from './components/SlideShow';
+
 function App() {
   const myStyle = {
     backgroundImage: `url(${background})`,
@@ -34,15 +34,16 @@ function App() {
   return (
     <div style={myStyle}>
 
-      <SlideShow></SlideShow>
+
       <UserProvider>
         {/* <BodyComponent></BodyComponent> */}
+        <Gallery></Gallery>
 
         <Router>
           <HeaderComponent />
           <Routes>
 
-           
+
             <Route path="/parnt" element={<ParentOne />} />
             <Route path="/RestrNav" element={<RestroNavigation />} />
             <Route path="/vegItemsList" element={<VegItemList />} />
@@ -57,7 +58,7 @@ function App() {
             <Route path='/child' element={<ChildComp />} />
             <Route path='/allOrders' element={<AllOrders />} />
             <Route path='/loginError' element={<LoginErrorPage />} />
-            <Route path='/register' element={<Register/>} />
+            <Route path='/register' element={<Register />} />
           </Routes>
           <RestroFooter />
         </Router>
