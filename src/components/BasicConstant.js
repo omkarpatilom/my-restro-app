@@ -7,10 +7,10 @@ export default class UserProvider extends Component {
     super(props)
 
     this.state = {
-      cusID: this.props.customerID,
-      role:this.props.role
+      id: 0,
+      role:0
     }
-    console.log('Userprovide states ', this.state.cusID,' role ',this.state.role);
+    console.log('Userprovide states ', this.state.id,' role ',this.state.role);
   }
   // chanegUserName = (newUser) => {
   //   console.log(newUser);
@@ -19,12 +19,12 @@ export default class UserProvider extends Component {
   // }
   render() {
     const { children } = this.props
-    const { cusID , role} = this.state
-    const { chanegUserName } = this
+    const { id  , role} = this.state
+    
     return (
       <div>
 
-        <ButtonContext.Provider value={{ cusID, role }}>
+        <ButtonContext.Provider value={{ id, role }}>
           {children}
 
         </ButtonContext.Provider>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
 import { ButtonContext } from './BasicConstant';
+import RestroFooter from './RestroFooter';
+import RestroNavigation from './RestroNavigation';
 
 class AllOrders extends Component {
     static contextType = ButtonContext;
@@ -74,6 +76,7 @@ class AllOrders extends Component {
     render() {
         return (
             <div className='text-white'>
+                <RestroNavigation></RestroNavigation>
                 <h2 className='text-center'>All Orders</h2><br>
                 </br>
 
@@ -133,7 +136,7 @@ class AllOrders extends Component {
                     </div>
 
                 }
-
+<RestroFooter/>
             </div>
         )
     }

@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartDetails from './components/CartDetails';
-import DemoBodyComponent from './components/DemoBodyComponent';
+import Gallery from './components/Gallery';
 import DrinkItemList from './components/DrinkItemList';
 import NonVegItemList from './components/NonVegItemList';
 import ParentOne from './components/ParentOne';
 import RestroNavigation from './components/RestroNavigation';
-import VegItemList from './components/VegItemList';
+import ReviewPage from './components/ReviewPage';
 import img3 from '../src/pic3.jpg'
 import LoginComponent from './components/medicalProject/LoginComponent';
 import LoginRestrorent from './components/LoginRestrorent';
@@ -23,8 +23,11 @@ import AllOrders from './components/AllOrders';
 import LoginErrorPage from './components/LoginErrorPage';
 import Register from './components/Register';
 import HeaderComponent from './HeaderComponent';
+import Demo from './components/Demo';
+import VegItemList from './components/VegItemList';
 
 function App() {
+  const flag = false;
   const myStyle = {
     backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
@@ -37,13 +40,14 @@ function App() {
 
       <UserProvider>
         {/* <BodyComponent></BodyComponent> */}
-        <Gallery></Gallery>
-
+        {/* <Gallery></Gallery> */}
+        {/* <Demo></Demo> */}
+      
         <Router>
           <HeaderComponent />
           <Routes>
 
-
+            <Route path="/review" element={<ReviewPage />} />
             <Route path="/parnt" element={<ParentOne />} />
             <Route path="/RestrNav" element={<RestroNavigation />} />
             <Route path="/vegItemsList" element={<VegItemList />} />
@@ -60,7 +64,7 @@ function App() {
             <Route path='/loginError' element={<LoginErrorPage />} />
             <Route path='/register' element={<Register />} />
           </Routes>
-          <RestroFooter />
+          
         </Router>
       </UserProvider>
     </div>

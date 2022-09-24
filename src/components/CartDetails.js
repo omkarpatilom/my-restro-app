@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
 import { ButtonContext } from './BasicConstant';
+import RestroFooter from './RestroFooter';
+import RestroNavigation from './RestroNavigation';
 
 class CartDetails extends Component {
     static contextType = ButtonContext;
     constructor(props) {
         super(props)
         this.state = {
-            emptyFlag:false,
+            emptyFlag: false,
             itemName: "",
             itemQuantity: "",
             items: [],
@@ -19,13 +21,14 @@ class CartDetails extends Component {
         APICalls.getAllOrdersByCusID(13).then((res) => {
             console.log();
             // res.data.length=0;
-            if(res.data.length>0){
-                this.setState({ items: res.data,
+            if (res.data.length > 0) {
+                this.setState({
+                    items: res.data,
                 });
-            }else{
-                this.setState({  emptyFlag:true});
+            } else {
+                this.setState({ emptyFlag: true });
             }
-            
+
         });
     }
 
@@ -69,26 +72,27 @@ class CartDetails extends Component {
         }).then();
 
     }
-    payNow(id){
+    payNow(id) {
         APICalls.payNow(id).then()
-          
- 
+
+
 
     }
     render() {
         return (
             <div className='text-white text-center'>
+                <RestroNavigation></RestroNavigation>
                 <h2>Cart Details</h2><br>
                 </br>
-              
-                {this.state.emptyFlag?
+
+                {this.state.emptyFlag ?
 
                     <div>
                         <div className="row">
                             <div className="col-sm-2"></div>
                             <div className="col-sm-6">
                                 <div className="alert alert-danger" role="alert">
-                                    Your cart is empty. <a href="/dashboard" className="alert-link"> Please click here to order Some items</a>. 
+                                    Your cart is empty. <a href="/dashboard" className="alert-link"> Please click here to order Some items</a>.
                                 </div>
 
                             </div>
@@ -136,7 +140,7 @@ class CartDetails extends Component {
                                             )
                                         }
                                     </tbody>
-                                </table><br></br><br></br><button onClick={()=>this.payNow(this.state.cusID)}>Pay Now </button>
+                                </table><br></br><br></br><button onClick={() => this.payNow(this.state.cusID)}>Pay Now </button>
                             </div>
                         </div>
                         <div className="col-sm-2"></div>
@@ -144,6 +148,7 @@ class CartDetails extends Component {
 
                 }
 
+<RestroFooter/>
             </div>
         )
     }

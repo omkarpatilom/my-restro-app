@@ -3,9 +3,11 @@ import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
 
 import { ButtonContext } from './BasicConstant';
+import RestroFooter from './RestroFooter';
+import RestroNavigation from './RestroNavigation';
 
 export default class BodyComponent extends Component {
-
+static contextType=ButtonContext;
 
   constructor(props) {
     super(props);
@@ -14,8 +16,8 @@ export default class BodyComponent extends Component {
       itemName: "",
       itemQuantity: "",
       items: [],
-      cusID: this.props.id,
-      role: this.props.customerID,
+      cusID: 0,
+      role: 0,
       clicks: 0
     }
 
@@ -28,11 +30,16 @@ export default class BodyComponent extends Component {
   }
 
   changeQuantity(e) {
+    e.preventDefault();
     this.setState({
       itemQuantity: e.target.value
     })
+    console.log('changeQuantity');
+
+    this.addItem(e);
   }
   addItem(e) {
+    console.log('addItem');
     e.preventDefault();
     const newVegItem = this.state.itemName;
     const newVegItemQ = this.state.itemQuantity;
@@ -65,7 +72,7 @@ export default class BodyComponent extends Component {
       "price": price,
       "cusID": IDD
     }).then(
-      alert("Added")
+      alert("Added:", IDD)
     );
 
   }
@@ -84,12 +91,15 @@ export default class BodyComponent extends Component {
 
     return (
       <div className='text-white text-center' >
-        <h2>DASHBOARD</h2><br>
+         <RestroNavigation></RestroNavigation>
+        <h2>DASHBOsdfsdARD</h2><br>
 
         </br> 
        
         <br></br>
-        {this.state.successMessage}
+        sm: {this.state.successMessage}   id{this.state.cusID}
+
+       
         <div className="row">
           <div className="col-sm-2"></div>
           <div className="col-sm-6">
@@ -132,7 +142,7 @@ export default class BodyComponent extends Component {
                          
                           
                           <td>
-                            <button onClick={() => this.addToCart(itms.itemID, itms.itemName, itms.price, this.state.clicks, 13)}>Add Item</button>
+                             <button onClick={() => this.addToCart(itms.itemID, itms.itemName, itms.price, this.state.clicks, this.state.cusID)}>Add Item</button>
                           </td>
                           {/* <td>
                             <div><button class="btn btn-primary" onClick={this.IncrementItem} onChange={this.changeQuantity.bind(this)}>+</button> Add
@@ -147,6 +157,7 @@ export default class BodyComponent extends Component {
           </div>
           <div className="col-sm-2"></div>
         </div>
+        <RestroFooter />
       </div>
     )
   }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import RestroFooter from './RestroFooter';
+import RestroNavigation from './RestroNavigation';
 class AboutUs extends Component {
   constructor(props) {
     super(props)
@@ -12,7 +14,7 @@ class AboutUs extends Component {
         {/* nav bar  start*/}
 
         {/* nav bar end */}
-
+<RestroNavigation></RestroNavigation>
 
 
         <h2>ABOUT US</h2>
@@ -91,7 +93,7 @@ class AboutUs extends Component {
 
 
 
-
+        <RestroFooter/>
 
       </div>
 

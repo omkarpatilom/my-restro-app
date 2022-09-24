@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import SmallIconsCopmonent from './SmallIconsCopmonent'
 
 class RestroFooter extends Component {
   render() {
@@ -171,7 +172,7 @@ class RestroFooter extends Component {
 
 
 
-      <footer className="w-100 py-4 flex-shrink-0">
+      <footer className="w-100 py-4 flex-shrink-0 text-white">
         <div className="container py-4">
           <div className="row gy-4 gx-5">
             <div className="col-lg-4 col-md-6">
@@ -189,9 +190,10 @@ class RestroFooter extends Component {
               </ul>
             </div>
             
-            <div className="col-lg-4 col-md-6">
-              <h5 className="text-white mb-3">Newsletter</h5>
-              <p className="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+            <div className="col-lg-4 col-md-6 text-white">
+              <h5 className="text-white mb-3">Please follow us on :</h5>
+              <p className="small  text-white">our social media channels</p>
+              <SmallIconsCopmonent></SmallIconsCopmonent> <br></br>
               <form action="#">
                 <div className="input-group mb-3">
                   <input className="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" />

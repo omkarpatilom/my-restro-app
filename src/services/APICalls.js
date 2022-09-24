@@ -51,6 +51,16 @@ class APICalls {
         return axios.get("http://localhost:3434/payNow/" + id, { headers, mode: 'no-cors', });
     }
 
+    createFeedback(employee) {
+        console.log(employee);
+        return axios.post("http://localhost:3434/createFeedback", employee, { headers, mode: 'no-cors', });
+    }
+    
+
+    getAllFeedbacks() {
+        return axios.get("http://localhost:3434/getAllFeedbacks", { headers, mode: 'no-cors', });
+    }
+
 }
 
 export default new APICalls()

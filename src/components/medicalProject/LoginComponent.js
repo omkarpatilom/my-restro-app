@@ -23,7 +23,7 @@ class LoginComponent extends Component {
 
     editEmployee() {
         // this.props.history.push(`/create`);
-        window.location.href = "/create";
+        window.location = "/create";
     }
     render() {
         return (

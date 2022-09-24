@@ -47,7 +47,10 @@ class VegItemList extends Component {
 
 
         {this.state.hideThisWindow ?
-          <> <br></br><h1 className=' text-white'>VEGETERIAN BASKET</h1><br></br><br></br>
+          <>
+          
+          <RestroNavigation></RestroNavigation>
+           <br></br><h1 className=' text-white'>VEGETERIAN BASKET</h1><br></br><br></br>
             <div className="container-fluid p-0 m-0 
             align-items-center 
             justify-content-center d-flex"
@@ -231,6 +234,8 @@ class VegItemList extends Component {
               </div>
             </div> </> : <BodyComponent />}
         <br></br>
+
+        <RestroFooter />
       </div>
     )
   }
