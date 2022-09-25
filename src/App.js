@@ -1,20 +1,17 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CartDetails from './components/CartDetails';
-import DemoBodyComponent from './components/DemoBodyComponent';
+
 import DrinkItemList from './components/DrinkItemList';
 import NonVegItemList from './components/NonVegItemList';
 import ParentOne from './components/ParentOne';
 import RestroNavigation from './components/RestroNavigation';
-import VegItemList from './components/VegItemList';
-import img3 from '../src/pic3.jpg'
-import LoginComponent from './components/medicalProject/LoginComponent';
+import ReviewPage from './components/ReviewPage';
 import LoginRestrorent from './components/LoginRestrorent';
-import RestroFooter from './components/RestroFooter';
 
-import ChildComp from './components/ChildComp';
+
 import UserProvider, { ButtonContext } from './components/BasicConstant';
 
-import BodyComponent from './components/BodyComponent';
+import BodyComponent from './components/Dashboard';
 import FeedbackComponent from './components/FeedbackComponent';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
@@ -23,8 +20,11 @@ import AllOrders from './components/AllOrders';
 import LoginErrorPage from './components/LoginErrorPage';
 import Register from './components/Register';
 import HeaderComponent from './HeaderComponent';
-import SlideShow from './components/SlideShow';
+import VegItemList from './components/VegItemList';
+import Dashboard from './components/Dashboard';
+
 function App() {
+  const flag = false;
   const myStyle = {
     backgroundImage: `url(${background})`,
     backgroundSize: 'cover',
@@ -34,32 +34,39 @@ function App() {
   return (
     <div style={myStyle}>
 
-      <SlideShow></SlideShow>
+
+
       <UserProvider>
-        {/* <BodyComponent></BodyComponent> */}
+
+
+
+
+        <HeaderComponent />
+
+
 
         <Router>
-          <HeaderComponent />
+
           <Routes>
 
-           
+            <Route path="/review" element={<ReviewPage />} />
             <Route path="/parnt" element={<ParentOne />} />
             <Route path="/RestrNav" element={<RestroNavigation />} />
             <Route path="/vegItemsList" element={<VegItemList />} />
             <Route path="/nonVegItemsList" element={<NonVegItemList />} />
             <Route path="/drinkItemsList" element={<DrinkItemList />} />
             <Route path="/cart" element={<CartDetails />} />
-            <Route path="/dashboard" element={<BodyComponent />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<LoginRestrorent />} />
             <Route path="/feedback" element={<FeedbackComponent />} />
             <Route path="/aboutUs" element={<AboutUs />} />
             <Route path="/contactUs" element={<ContactUs />} />
-            <Route path='/child' element={<ChildComp />} />
+          
             <Route path='/allOrders' element={<AllOrders />} />
             <Route path='/loginError' element={<LoginErrorPage />} />
-            <Route path='/register' element={<Register/>} />
+            <Route path='/register' element={<Register />} />
           </Routes>
-          <RestroFooter />
+
         </Router>
       </UserProvider>
     </div>

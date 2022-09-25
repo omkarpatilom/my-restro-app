@@ -1,4 +1,7 @@
-import React, { Component } from 'react';class AboutUs extends Component {
+import React, { Component } from 'react';
+import RestroFooter from './RestroFooter';
+import RestroNavigation from './RestroNavigation';
+class AboutUs extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -7,141 +10,93 @@ import React, { Component } from 'react';class AboutUs extends Component {
 
   render() {
     return (
-      <div className='card'>
+      <div className='text-white'>
         {/* nav bar  start*/}
-        
-        {/* nav bar end */}
 
+        {/* nav bar end */}
+<RestroNavigation></RestroNavigation>
 
 
         <h2>ABOUT US</h2>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
-  <div class="container"><a href="#" class="navbar-brand d-flex align-items-center"> <i class="fa fa-snowflake-o fa-lg text-primary mr-2"></i><strong>Snowflake</strong></a>
-    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
-    <div id="navbarSupportedContent" class="collapse navbar-collapse">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active"><a href="#" class="nav-link font-italic"> Home </a></li>
-        <li class="nav-item active"><a href="#" class="nav-link font-italic"> About </a></li>
-        <li class="nav-item active"><a href="#" class="nav-link font-italic"> Services </a></li>
-        <li class="nav-item active"><a href="#" class="nav-link font-italic"> Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+        <h1>Hello World!</h1>
+        <p>Resize the browser window to see the effect.</p>
+        <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
+        <div className="row">
+          <div className="col-sm-1" style={{ "background-color": "lavender" }}>.col-sm-4</div>
+          <div className="col-sm-10" style={{ "background-color": "red" }} >
+            <p>Who we are? <br></br>
+              We're one Team... <br></br>
+              There's no "I" in SOONap_Coders. The only way we'll succeed is by solving problems together and sharing lessons along the way. As individuals we own our actions, support and respect each other and embrace our differences.</p>
 
-<div class="bg-light">
-  <div class="container py-5">
-    <div class="row h-100 align-items-center py-5">
-      <div class="col-lg-6">
-        <h1 class="display-4">About us page</h1>
-        <p class="lead text-muted mb-0">Create a minimal about us page using Bootstrap 4.</p>
-        <p class="lead text-muted">Snippet by <a href="https://bootstrapious.com/snippets" class="text-muted"> 
-                    <u>Bootstrapious</u></a>
-        </p>
-      </div>
-      <div class="col-lg-6 d-none d-lg-block"><img src="https://bootstrapious.com/i/snippets/sn-about/illus.png" alt="" class="img-fluid"/></div>
-    </div>
-  </div>
-</div>
 
-<div class="bg-white py-5">
-  <div class="container py-5">
-    <div class="row align-items-center mb-5">
-      <div class="col-lg-6 order-2 order-lg-1"><i class="fa fa-bar-chart fa-2x mb-3 text-primary"></i>
-        <h2 class="font-weight-light">Lorem ipsum dolor sit amet</h2>
-        <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a>
-      </div>
-      <div class="col-lg-5 px-5 mx-auto order-1 order-lg-2"><img src="https://bootstrapious.com/i/snippets/sn-about/img-1.jpg" alt="" class="img-fluid mb-4 mb-lg-0"/></div>
-    </div>
-    <div class="row align-items-center">
-      <div class="col-lg-5 px-5 mx-auto"><img src="https://bootstrapious.com/i/snippets/sn-about/img-2.jpg" alt="" class="img-fluid mb-4 mb-lg-0"/></div>
-      <div class="col-lg-6"><i class="fa fa-leaf fa-2x mb-3 text-primary"></i>
-        <h2 class="font-weight-light">Lorem ipsum dolor sit amet</h2>
-        <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><a href="#" class="btn btn-light px-5 rounded-pill shadow-sm">Learn More</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="bg-light py-5">
-  <div class="container py-5">
-    <div class="row mb-4">
-      <div class="col-lg-5">
-        <h2 class="display-4 font-weight-light">Our team</h2>
-        <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-      </div>
-    </div>
-
-    <div class="row text-center">
-      
-      <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-4.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
-          <h5 class="mb-0">Manuella Nevoresky</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
-          <ul class="social mb-0 list-inline mt-3">
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
+          </div>
+          <div className="col-sm-1" style={{ "background-color": "blue" }}>.col-sm-4</div>
         </div>
-      </div>
-      
-      <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-3.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
-          <h5 class="mb-0">Samuel Hardy</h5><span class="small text-uppercase text-muted">CEO - Founder</span>
-          <ul class="social mb-0 list-inline mt-3">
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
+
+        <br></br><br></br>
+        <div className="row">
+          <div className="col-sm-2" style={{ "background-color": "lavender" }}>.col-sm-4</div>
+          <div className="col-sm-8" style={{ "background-color": "red" }} >
+            <img className='text-center' src={`${process.env.PUBLIC_URL}/images/collage.jpeg`} style={{ "width": "9", "height": "50" }}
+              alt="logo" />
+          </div>
+          <div className="col-sm-2" style={{ "background-color": "blue" }}>.col-sm-4</div>
         </div>
-      </div>
-     
-      <div class="col-xl-3 col-sm-6 mb-5">
-        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-2.png" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
-          <h5 className="mb-0">Tom Sunderland</h5><span className="small text-uppercase text-muted">CEO - Founder</span>
-          <ul className="social mb-0 list-inline mt-3">
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-facebook-f"></i></a></li>
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-twitter"></i></a></li>
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-instagram"></i></a></li>
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-linkedin"></i></a></li>
-          </ul>
+        <br></br><br></br><br></br>
+        <div className="row">
+          <div className="col-sm-2" style={{ "background-color": "lavender" }}>.col-sm-4</div>
+          <div className="col-sm-8" style={{ "background-color": "red" }} >
+            <p>
+
+
+              The SOONap_Coders Restaurant brings an exotic oriental fragrance in Pune – India. The restaurant was initially set up with on binding and 10 workers in India in the year 2016 as a Start Up.
+              Its interior design represents elegant and precisely measured fusion between ottoman art and custom designed objects. You are lead to the inner space through ottoman arcs and hanging wooden ornaments, that brings you to warm and cozy space with authentic Turkish carpets covering the walls and small tables surrounded with cushions sitting. That atmosphere gives you the unmistakable sensation of an oriental bazaar – where owners always invite you to sit down in carpet cover room, for a tea and chat, before discussing a purchase.Various shades of torques, earthly tones, exposed wood and tender tinge of gray are the palate notes that hold this place atmosphere in the warmth embrace of comfort. Every detail of the interior design is inspired by the Orient and the ottoman art. The lightning solution features custom made lamps in the shape of fez or nargile base. The floors are covered with mosaic tiles with ottoman and Iznik motifs. The decorative cooper elements on the walls and counter tops are from traditional folk- life style. But there is again the eclectic fusion of eras – the exposed, sculpture- like, pluming on the roof, the clean, simple lines of the chair design and the table bases.
+            </p>
+
+
+          </div>
+          <div className="col-sm-2" style={{ "background-color": "blue" }}>.col-sm-4</div>
         </div>
-      </div>
-     
-
-    
-      <div className="col-xl-3 col-sm-6 mb-5">
-        <div className="bg-white rounded shadow-sm py-5 px-4"><img src="https://bootstrapious.com/i/snippets/sn-about/avatar-1.png" alt="" width="100" className="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"/>
-          <h5 className="mb-0">John Tarly</h5><span className="small text-uppercase text-muted">CEO - Founder</span>
-          <ul className="social mb-0 list-inline mt-3">
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-facebook-f"></i></a></li>
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-twitter"></i></a></li>
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-instagram"></i></a></li>
-            <li className="list-inline-item"><a href="#" className="social-link"><i className="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      
-
-    </div>
-  </div>
-</div>
-
-
-<footer className="bg-light pb-5">
-  <div className="container text-center">
-    <p className="font-italic text-muted mb-0">&copy; Copyrights Company.com All rights reserved.</p>
-  </div>
-</footer>
-
-
 
         <br></br><br></br><br></br>
+        <div className="row">
+          <div className="col-sm-2" style={{ "background-color": "lavender" }}>.col-sm-4</div>
+          <div className="col-sm-8" style={{ "background-color": "red" }} >
 
+            <h4>Restaurant Timings:</h4>
+            <p className='text-center'>
+
+
+              Week Days - Open<br></br>
+              Tue-Thurs : 9:00 AM  to 11:00 PM<br></br>
+              Delivery : 10:00 AM to 10:30 PM<br></br>
+              <br></br>
+              Weekends - Open<br></br>
+              Fri-Sun : 10:00 AM to 12:30 PM<br></br>
+              Delivery: 10:30 AM to 12:00 PM <br></br>
+              <br></br>
+              Mon - Closed
+
+
+            </p>
+
+
+          </div>
+          <div className="col-sm-2" style={{ "background-color": "blue" }}>.col-sm-4</div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <RestroFooter/>
 
       </div>
+
 
     )
   }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
 import { ButtonContext } from './BasicConstant';
+import RestroFooter from './RestroFooter';
+import RestroNavigation from './RestroNavigation';
 
 class AllOrders extends Component {
     static contextType = ButtonContext;
@@ -71,11 +73,16 @@ class AllOrders extends Component {
         }).then();
 
     }
+    static contextType=ButtonContext;
     render() {
+        const {id,role,changeID}=this.context
         return (
             <div className='text-white'>
+                <RestroNavigation></RestroNavigation>
                 <h2 className='text-center'>All Orders</h2><br>
                 </br>
+
+                {id} {role}
 
                 {this.state.emptyFlag ?
 
@@ -133,7 +140,7 @@ class AllOrders extends Component {
                     </div>
 
                 }
-
+<RestroFooter/>
             </div>
         )
     }

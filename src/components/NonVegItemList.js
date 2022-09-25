@@ -5,7 +5,9 @@ import img2 from '../images/pic2.jpg'
 import img3 from '../images/pic3.jpg'
 
 import ButtonContext from './BasicConstant';
-import BodyComponent from './BodyComponent';
+import BodyComponent from './Dashboard';
+import RestroNavigation from './RestroNavigation';
+import RestroFooter from './RestroFooter';
 
 class NonVegItemList extends Component {
 
@@ -37,15 +39,20 @@ class NonVegItemList extends Component {
         });
     }
 
-
+    static contextType=ButtonContext;
     render() {
+        const {id,role,changeID}=this.context
         return (
             <div className=' text-center'>
                
 
 
                 {this.state.hideThisWindow ?
-                    <> <br></br><h1 className=' text-white'>NON VEGETERIAN</h1><br></br><br></br>
+                    <> 
+                    
+                    <RestroNavigation></RestroNavigation>
+                    {id} {role}
+                    <br></br><h1 className=' text-white'>NON VEGETERIAN</h1><br></br><br></br>
                         <div className="container-fluid p-0 m-0 
                 align-items-center 
                 justify-content-center d-flex"
@@ -228,7 +235,7 @@ class NonVegItemList extends Component {
                             </div></div> </> : <BodyComponent />}
 
                 <br></br>
-
+                <RestroFooter />
             </div>
 
 

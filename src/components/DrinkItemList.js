@@ -7,7 +7,9 @@ import img2 from '../images/pic2.jpg'
 import img3 from '../images/pic3.jpg'
 import CartDetails from './CartDetails';
 import { ButtonContext } from './BasicConstant';
-import BodyComponent from './BodyComponent';
+import BodyComponent from './Dashboard';
+import RestroNavigation from './RestroNavigation';
+import RestroFooter from './RestroFooter';
 class DrinkItemList extends Component {
   // we can use context now
   static contextType = ButtonContext;
@@ -47,7 +49,8 @@ class DrinkItemList extends Component {
 
 
         {this.state.hideThisWindow ?
-          <> <br></br><h1 className='text-white'>COLD DRINKS</h1><br></br><br></br>
+          <>     <RestroNavigation></RestroNavigation> <br></br>
+          <h1 className='text-white'>COLD DRINKS</h1><br></br><br></br>
             <div className="container-fluid p-0 m-0 
             align-items-center 
             justify-content-center d-flex"
@@ -229,7 +232,7 @@ class DrinkItemList extends Component {
               </div></div> </> : <BodyComponent />}
 
         <br></br>
-
+        <RestroFooter />
       </div>
 
 

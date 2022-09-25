@@ -16,7 +16,7 @@ export default class DemoBodyComponent extends Component {
 
     this.state = {
       hideFlag: true,
-      cusID: this.props.name,
+      cusID: 0,
       itemName: "",
       itemQuantity: "",
       items: [],
@@ -50,7 +50,6 @@ export default class DemoBodyComponent extends Component {
 
   }
 
-  static contextType=ButtonContext;
   render() {
     const cardImgsTop = {
       "width": "20%",
@@ -65,7 +64,7 @@ export default class DemoBodyComponent extends Component {
     
         </br>
 
-        {this.context}
+        
 
         {this.state.cusID}
 

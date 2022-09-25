@@ -4,11 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+// import { Provider } from 'react-redux';
+// import CounterActions from "./ClassReduxComponents/CounterAction";
+// import TextActions from "./ClassReduxComponents/TextAction";
+
+// import Text from "./ClassReduxComponents/Text";
+// import Counter from "./ClassReduxComponents/Counter";
+// import { combineReducers } from "redux";
+// import { createStore } from "react-redux";
+// import rootReducer from "./Reducers";
+// const store = createStore(rootReducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Provider store={store}> */}
+      <App />
+      
+      {/* </Provider> */}
   </React.StrictMode>
 );
 
@@ -16,3 +29,16 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+// const rootReducer = combineReducers({
+//   Counter,
+//   Text
+// });
+
+// const allActions = {
+//   CounterActions,
+//   TextActions
+// };
+
+// export default {rootReducer , allActions};

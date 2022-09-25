@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import BodyComponent from './BodyComponent';
+import BodyComponent from './Dashboard';
 import img3 from '../images/pic3.jpg'
 
 <img className="card-img-top" src={img3}

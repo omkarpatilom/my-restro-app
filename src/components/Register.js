@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
 
 import { ButtonContext } from './BasicConstant';
+import RestroFooter from './RestroFooter';
 
 export default class Register extends Component {
 
@@ -122,8 +123,8 @@ export default class Register extends Component {
                   <label> Mail: </label>
                   <input placeholder="Email" name="mail" className="form-control" value={this.state.mail} onChange={this.mailChange.bind(this)} />
                 </div><br></br>
-                
-                
+
+
                 <div className="form-group">
                   <label> Address: </label>
                   <input placeholder="Address" name="userAddress" className="form-control" value={this.state.userAddress} onChange={this.userAddressChange.bind(this)} />
@@ -138,74 +139,23 @@ export default class Register extends Component {
                   <label> Contact: </label>
                   <input placeholder="Contact" name="contact" className="form-control" value={this.state.contact} onChange={this.contactChange.bind(this)} />
                 </div><br></br>
-                
+
 
 
 
 
                 <button className="btn btn-outline-primary" style={{ marginLeft: "100px" }} onClick={this.submitForm.bind(this)}>Save</button>
-              
+
               </form>
             </div>
           </div>
           <div className="col-sm-5"></div>
-        </div>
+        </div><RestroFooter />
       </div>
     )
   }
 }
 
-{/* <div className='container '>
-              <table className="table table-bordered text-white">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">name</th>
-                    <th scope="col">price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Add to cart</th>
-                  
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    this.state.items.map(
-                      (itms, index) =>
-                        <tr key={index}>
-                          <th scope="row">{itms.itemID}</th>
-                          <td>{itms.itemName}</td>
-                          <td>{itms.price}</td>
-                         <td>
-                            <select onChange={this.changeQuantity.bind(this)} >
-                              <option  >select</option>
-                              <option value="1" >1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                              <option value="10">10</option>
-                            </select>
-
-                          </td>
-                         
-                          
-                          <td>
-                            <button onClick={() => this.addToCart(itms.itemID, itms.itemName, itms.price, this.state.clicks, 13)}>Add Item</button>
-                          </td>
-                           <td>
-                            <div><button class="btn btn-primary" onClick={this.IncrementItem} onChange={this.changeQuantity.bind(this)}>+</button> Add
-                              <button class="btn btn-primary" onClick={this.DecreaseItem}>-</button></div>
-                          </td> 
-                        </tr>
-                    )
-                  }
-                </tbody>
-              </table>
-            </div> */}
 
 
 

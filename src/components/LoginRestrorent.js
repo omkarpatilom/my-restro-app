@@ -2,12 +2,17 @@ import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
 import UserProvider, { ButtonContext } from './BasicConstant'
 
-import BodyComponent from './BodyComponent'
+import BodyComponent from './Dashboard'
+import CartDetails from './CartDetails';
+import AllOrders from './AllOrders';
 import LoginErrorPage from './LoginErrorPage';
+
+import VegItemList from './VegItemList';
+import NonVegItemList from './NonVegItemList';
 
 
 export default class LoginRestrorent extends Component {
-    // static contextType = ButtonContext;
+
     static contextType = ButtonContext;
     constructor(props) {
         super(props)
@@ -19,22 +24,24 @@ export default class LoginRestrorent extends Component {
             password: "",
             cusID: "",
             role: "",
-            message: "",
             id: "",
+            message: "",
             showLoginPage: true,
             showLoginErrorPage: false
         }
-        this.callMethod = this.callMethod.bind(this)
+
     }
     changeUsername(e) {
+        e.preventDefault();
         this.setState({ username: e.target.value })
     }
     changePassword(e) {
+        e.preventDefault();
         this.setState({ password: e.target.value })
     }
 
-    authenticate() {
-
+    authenticate(e) {
+        e.preventDefault();
         console.log('Login req : ', this.state.username, "  ", this.state.password);
         APICalls.login(
             {
@@ -49,59 +56,28 @@ export default class LoginRestrorent extends Component {
                     role: resp.data.role,
                     id: resp.data.id
                 })
-
             }
-
-
-
-
         );
-
-        console.log("1------------");
-        this.callMethod();
-
-        console.log("2------------");
-
-        console.log("Login response ", this.state.role, ' ', this.state.message, ' ', this.state.id);
-
-        // this.context.changeUsername(3)
     }
 
-    callMethod() {
 
-        console.log('callMethod start ');
-        console.log('mesage ==>>', this.state.message);
-        if (this.state.message === "success") {
-            console.log("checking condition");
-            this.state.forward = true; //used for going forward page
-            this.state.showLoginErrorPage = false;
-            this.state.hideFlag = false;
-        }
-        else if (this.state.message === "invalid credentials") {
-
-            this.state.forward = false; //used for going forward page
-            this.state.showLoginErrorPage = true;
-            this.state.hideFlag = false;
-        }
-        else {
-            this.state.showLoginErrorPage = false
-            this.state.hideFlag = false;
-            this.state.forward = true;
-        }
-        console.log('callMethod ends');
-
-    }
     render() {
-        // const { cusID, chanegUserName } = this.context;
-        const hideFlag = this.state.hideFlag;
-        const showLoginErrorPage = this.state.showLoginErrorPage;
-        const forwardFlag = this.state.forward;
-        let button;
-        if (hideFlag) {
-            button =
+        // const { id, role } = this.context
+
+        const resposneMessage = this.state.message;
+        const resposneRole = this.state.role;
+        const resposneID = this.state.id;
+
+        let divv;
+        if (resposneMessage === '' && this.state.showLoginPage == true) {
+
+            divv =
                 <div className="row">
+
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4">
+                        login {this.state.role} {this.state.message} {this.state.id}
+
                         <form>
 
                             <div className="form-outline mb-4">
@@ -123,21 +99,7 @@ export default class LoginRestrorent extends Component {
                             <div className="text-center align-center">
                                 <p>Not a member? <a href="/register">Register</a></p>
                                 <p>or sign up with:</p>
-                                {/* <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-facebook-f">ddd</i>
-                                </button>
 
-                                <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-google">eee</i>
-                                </button>
-
-                                <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-twitter">wwef</i>
-                                </button>
-
-                                <button type="button" className="btn btn-link btn-floating mx-1">
-                                    <i className="fab fa-github"></i>
-                                </button> */}
                             </div>
                         </form>
 
@@ -145,24 +107,61 @@ export default class LoginRestrorent extends Component {
                     </div>
                     <div className="col-sm-4"></div>
                 </div>;
-        } else if (showLoginErrorPage == true && hideFlag == false && forwardFlag == false) {
+        }
+        if (resposneMessage === 'success' && resposneRole === 'user') {
+            // this.setState({
+            //     showLoginPage: false
+            // })
+            this.state.showLoginPage = false;
+            divv = <div>
+                <UserProvider >
+                   
+                    <BodyComponent customerID={this.state.id} customerRole={this.state.role}></BodyComponent>
+                    {/* <CartDetails></CartDetails>
+                    <AllOrders></AllOrders>
+                    <VegItemList></VegItemList>
+                    <NonVegItemList></NonVegItemList> */}
 
-            button = <><LoginErrorPage></LoginErrorPage></>
+                </UserProvider>
+
+
+
+
+
+
+            </div>;
         }
-        else if (showLoginErrorPage == false && hideFlag == false && forwardFlag == true) {
-            button = <>
-                <UserProvider customerID={this.state.id} role={this.state.role}></UserProvider>
-                <BodyComponent customerID={this.state.id} role={this.state.role}></BodyComponent></>;
+
+        // if (resposneMessage === 'success' && resposneRole === 'admin') {
+        //     this.setState({
+        //         showLoginPage: false
+        //     })
+        //     divv = <div>
+
+        //         <UserProvider customerID={this.state.id} role={this.state.role}></UserProvider>
+        //         <BodyComponent customerID={this.state.id} role={this.state.role}></BodyComponent>
+        //     </div>;
+        // }
+        if (resposneMessage === 'Invalide Credentials') {
+            // this.setState({
+            //     showLoginPage: false
+            // })
+            this.state.showLoginPage = false;
+            divv = <div>
+                <LoginErrorPage></LoginErrorPage>
+
+            </div>;
         }
+
 
 
 
 
         return (
             < div className='text-white' > <br></br>
-                {this.state.role} {this.state.message} {this.state.id}
-                < br ></br >
-                {button}
+
+
+                {divv}
             </div >
         )
 
