@@ -73,12 +73,16 @@ class AllOrders extends Component {
         }).then();
 
     }
+    static contextType=ButtonContext;
     render() {
+        const {id,role,changeID}=this.context
         return (
             <div className='text-white'>
                 <RestroNavigation></RestroNavigation>
                 <h2 className='text-center'>All Orders</h2><br>
                 </br>
+
+                {id} {role}
 
                 {this.state.emptyFlag ?
 

@@ -13,13 +13,13 @@ class CartDetails extends Component {
             itemName: "",
             itemQuantity: "",
             items: [],
-            cusID: ""
+            cusID: 33
         }
     }
 
     componentDidMount() {
-        APICalls.getAllOrdersByCusID(13).then((res) => {
-            console.log();
+        APICalls.getAllOrdersByCusID(0).then((res) => {
+            console.log("ddddd  ",res.data.length);
             // res.data.length=0;
             if (res.data.length > 0) {
                 this.setState({
@@ -79,11 +79,14 @@ class CartDetails extends Component {
 
     }
     render() {
+        const{id,role}=this.context;
+     
         return (
             <div className='text-white text-center'>
                 <RestroNavigation></RestroNavigation>
                 <h2>Cart Details</h2><br>
                 </br>
+                cart context : {id} cart role : {role}
 
                 {this.state.emptyFlag ?
 
@@ -106,6 +109,7 @@ class CartDetails extends Component {
                     <div className="row text-white ">
                         <div className="col-sm-2"></div>
                         <div className="col-sm-6">
+                           
                             <div className='container '>
                                 <table className="table table-bordered text-white text-center">
                                     <thead>

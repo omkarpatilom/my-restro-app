@@ -25,6 +25,7 @@ import Register from './components/Register';
 import HeaderComponent from './HeaderComponent';
 import Demo from './components/Demo';
 import VegItemList from './components/VegItemList';
+import ChangeID from './components/ChangeID';
 
 function App() {
   const flag = false;
@@ -37,14 +38,19 @@ function App() {
   return (
     <div style={myStyle}>
 
+<AboutUs01></AboutUs01>
 
       <UserProvider>
-        {/* <BodyComponent></BodyComponent> */}
-        {/* <Gallery></Gallery> */}
-        {/* <Demo></Demo> */}
       
+      
+
+
+        <HeaderComponent />
+
+
+
         <Router>
-          <HeaderComponent />
+
           <Routes>
 
             <Route path="/review" element={<ReviewPage />} />
@@ -64,7 +70,7 @@ function App() {
             <Route path='/loginError' element={<LoginErrorPage />} />
             <Route path='/register' element={<Register />} />
           </Routes>
-          
+
         </Router>
       </UserProvider>
     </div>

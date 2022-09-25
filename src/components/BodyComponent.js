@@ -16,10 +16,12 @@ static contextType=ButtonContext;
       itemName: "",
       itemQuantity: "",
       items: [],
-      cusID: 0,
-      role: 0,
+      propID:0,
+      propRole:0,
+      cusRole: "",
       clicks: 0
     }
+    this.addToCart=this.addToCart.bind(this);
 
   }
 
@@ -60,6 +62,7 @@ static contextType=ButtonContext;
 
   }
   addToCart(id, name, price, quantity, IDD) {
+    // chanegID(this.state.propID);
     console.log(id, ' ', name, ' ', price, ' ', quantity, ' ', IDD);
     this.setState({
       hideFlag: false,
@@ -86,7 +89,9 @@ static contextType=ButtonContext;
   }
   static contextType = ButtonContext;
   render() {
-    const { cusID, role } = this.context
+    const { id, role, changeID } = this.context
+    // this.state.cusID=id
+    // this.state.cusRole=role
     // console.log('BodyComponent cusID=', cusID, ' role=', role);
 
     return (
@@ -94,10 +99,12 @@ static contextType=ButtonContext;
          <RestroNavigation></RestroNavigation>
         <h2>DASHBOsdfsdARD</h2><br>
 
-        </br> 
-       
+        </br>
+        Body Component 
         <br></br>
-        sm: {this.state.successMessage}   id{this.state.cusID}
+       context var:  id: {id}  role: {role}
+        <br></br>
+        states: id : {this.state.propID} role : {this.state.propRole}   
 
        
         <div className="row">
@@ -142,9 +149,13 @@ static contextType=ButtonContext;
                          
                           
                           <td>
-                             <button onClick={() => this.addToCart(itms.itemID, itms.itemName, itms.price, this.state.clicks, this.state.cusID)}>Add Item</button>
+                             <button onClick={()=>{
+                              this.addToCart(itms.id,itms.name,itms.price,this.state.itemQuantity,id)}}>Add Item</button>
                           </td>
-                          {/* <td>
+                          {/*
+                          ;
+                              {changeID(this.props.id)} ;
+                          <td>
                             <div><button class="btn btn-primary" onClick={this.IncrementItem} onChange={this.changeQuantity.bind(this)}>+</button> Add
                               <button class="btn btn-primary" onClick={this.DecreaseItem}>-</button></div>
                           </td> */}

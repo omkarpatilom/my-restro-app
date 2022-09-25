@@ -7,24 +7,27 @@ export default class UserProvider extends Component {
     super(props)
 
     this.state = {
-      id: 0,
-      role:0
+      id: "22",
+      role:"nonew"
     }
+
+    this.changeID=this.changeID.bind(this)
     console.log('Userprovide states ', this.state.id,' role ',this.state.role);
   }
-  // chanegUserName = (newUser) => {
-  //   console.log(newUser);
-  //   this.setState(({ cusID: newUser }))
+  changeID = (newId) => {
+    console.log('calling changeID ',newId);
+    this.setState(({ id: newId }))
 
-  // }
+  }
   render() {
     const { children } = this.props
     const { id  , role} = this.state
+    const{changeID}=this
     
     return (
       <div>
 
-        <ButtonContext.Provider value={{ id, role }}>
+        <ButtonContext.Provider value={{ id, role,changeID }}>
           {children}
 
         </ButtonContext.Provider>

@@ -39,8 +39,9 @@ class NonVegItemList extends Component {
         });
     }
 
-
+    static contextType=ButtonContext;
     render() {
+        const {id,role,changeID}=this.context
         return (
             <div className=' text-center'>
                
@@ -50,6 +51,7 @@ class NonVegItemList extends Component {
                     <> 
                     
                     <RestroNavigation></RestroNavigation>
+                    {id} {role}
                     <br></br><h1 className=' text-white'>NON VEGETERIAN</h1><br></br><br></br>
                         <div className="container-fluid p-0 m-0 
                 align-items-center 

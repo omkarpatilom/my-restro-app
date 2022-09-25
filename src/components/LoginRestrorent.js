@@ -3,13 +3,17 @@ import APICalls from '../services/APICalls';
 import UserProvider, { ButtonContext } from './BasicConstant'
 
 import BodyComponent from './BodyComponent'
-import DemoBodyComponent from './DemoBodyComponent';
+import CartDetails from './CartDetails';
+import AllOrders from './AllOrders';
 import LoginErrorPage from './LoginErrorPage';
+import ChangeID from './ChangeID';
+import VegItemList from './VegItemList';
+import NonVegItemList from './NonVegItemList';
 
 
 export default class LoginRestrorent extends Component {
     // static contextType = ButtonContext;
-    // static contextType = ButtonContext;
+    static contextType = ButtonContext;
     constructor(props) {
         super(props)
 
@@ -20,7 +24,6 @@ export default class LoginRestrorent extends Component {
             password: "",
             cusID: "",
             role: "",
-            message: "",
             id: "",
             message: "",
             showLoginPage: true,
@@ -70,6 +73,7 @@ export default class LoginRestrorent extends Component {
 
             divv =
                 <div className="row">
+
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4">
                         login {this.state.role} {this.state.message} {this.state.id}
@@ -110,11 +114,19 @@ export default class LoginRestrorent extends Component {
             // })
             this.state.showLoginPage = false;
             divv = <div>
-             
-                    <DemoBodyComponent></DemoBodyComponent>
+                <UserProvider >
+                    <ChangeID customerID={this.state.id} customerRole={this.state.role}></ChangeID>
+                    <BodyComponent></BodyComponent>
+                    <CartDetails></CartDetails>
+                    <AllOrders></AllOrders>
+                    <VegItemList></VegItemList>
+                    <NonVegItemList></NonVegItemList>
 
-             
-                    
+                </UserProvider>
+
+
+
+
 
 
             </div>;
