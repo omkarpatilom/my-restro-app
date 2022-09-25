@@ -1,95 +1,152 @@
-import React, { Component } from 'react';
-import Dropdown from 'react-bootstrap/Dropdown';
+import React, { Component } from 'react'
+
 import APICalls from '../services/APICalls';
-class DashBoard extends Component {
 
-    constructor(props) {
-        super(props)
+import { ButtonContext } from './BasicConstant';
+import RestroFooter from './RestroFooter';
+import RestroNavigation from './RestroNavigation';
 
-        this.state = {
-            first: "",
-            cities: [
+export default class Dashboard extends Component {
+  static contextType = ButtonContext;
 
-                { id: 1, name: "AA" }, { id: 2, name: "BB" }, { id: 3, name: "CC" }, { id: 2, name: "DDx" }
-            ],
-            items: []
-
-        }
-        this.editEmployee = this.editEmployee.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      successMessage: "",
+      itemName: "",
+      itemQuantity: "",
+      items: [],
+      propID: this.props.customerID,
+      propRole: this.props.customerRole,
+      cusRole: "",
+      clicks: 0
     }
-    componentDidMount() {
-        APICalls.getItems().then((res) => {
-            this.setState({ items: res.data });
-        });
-    }
+    this.addToCart = this.addToCart.bind(this);
+
+  }
+
+  componentDidMount() {
+    APICalls.getAllItems().then((res) => {
+      this.setState({ items: res.data });
+    });
+  }
+
+  changeQuantity(e) {
+    e.preventDefault();
+    this.setState({
+      itemQuantity: e.target.value
+    })
+    console.log('changeQuantity');
+
+    this.addItem(e);
+  }
+  addItem(e) {
+    console.log('addItem');
+    e.preventDefault();
+    const newVegItem = this.state.itemName;
+    const newVegItemQ = this.state.itemQuantity;
+    const obj = {
+      "itemName": newVegItem,
+      'itemQuantity': newVegItemQ
+
+    };
+    const newArray = this.state.items.slice(); // Create a copy
+    newArray.push(obj); // Push the object
+    this.setState({
+      items: newArray
+    });
+    console.log(this.state.items);
+
+    this.state.itemQuantity = '';
+    this.state.itemQuantity = '';
+
+  }
+  addToCart(id, name, price, quantity, IDD) {
+    // chanegID(this.state.propID);
+    console.log(id, ' ', name, ' ', price, ' ', quantity, ' ', IDD);
+    this.setState({
+      hideFlag: false,
+      hideThisWindow: false
+    })
+    APICalls.createOrder({
+      "itemID": id,
+      "itemName": name,
+      "itemQuantity": quantity,
+      "price": price,
+      "cusID": IDD
+    }).then(
+      alert("Added:", IDD)
+    );
+
+  }
+  IncrementItem = () => {
+    this.setState({ clicks: this.state.clicks + 1 });
+    console.log(this.state.clicks);
+  }
+  DecreaseItem = () => {
+    this.setState({ clicks: this.state.clicks - 1 });
+    console.log(this.state.clicks);
+  }
+
+  render() {
+    
 
 
-
-    editEmployee() {
-        // this.props.history.push(`/create`);
-        window.location.href = "/create";
-    }
-    render() {
-
-        return (
+    return (
+      <div className='text-white text-center' >
+        <RestroNavigation></RestroNavigation>
+        <h2>Dhashboard</h2>
 
 
+        <div className="row">
+          <div className="col-sm-2"></div>
+          <div className="col-sm-6">
+            <div className=' container  '>
+              <table className="table table-bordered text-white">
+                <thead >
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Add to cart</th>
 
-            <div className='card'>
-                {/* nav bar  start*/}
-                <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                    <div className="container-fluid">
-                        <a className="navbar-brand" href="#">Navbar</a>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page" href="/dashboard">Home</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/menu">Menu</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/contactUs">Contact Us</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/aboutUs">About Us</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/feedback">Feedback</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="/billing">Billing</a>
-                                </li>
-                            </ul>
-                            <form className="d-flex">
-                                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                                <button className="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
-                {/* nav bar end */}
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                    this.state.items.map(
+                      (itms, index) =>
+                        <tr key={index}>
+                          <th scope="row">{itms.itemID}</th>
+                          <td>{itms.itemName}</td>
+                          <td>{itms.price}</td>
+                          <td>
+                            <select onChange={this.changeQuantity.bind(this)} >
+                              <option  >select</option>
+                              <option value="1" >1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                            </select></td>
 
-
-
-                <h2>DASHBOARD</h2>
-
-                
-
-                <br></br><br></br><br></br>
-                
-
-
-
+                          <td><button onClick={() => this.addToCart(itms.id, itms.name, itms.price, this.state.itemQuantity, this.props.id)}>Add Item</button></td>
+                        </tr>
+                    )
+                  }
+                </tbody>
+              </table>
             </div>
-
-
-
-        )
+          </div>
+        </div>
+        <RestroFooter></RestroFooter>
+      </div>
+          ) 
     }
-}
-
-export default DashBoard
+  }

@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
-import { ButtonContext } from './BasicConstant';
+
 import RestroFooter from './RestroFooter';
 import RestroNavigation from './RestroNavigation';
 
 class CartDetails extends Component {
-    static contextType = ButtonContext;
+   
     constructor(props) {
         super(props)
         this.state = {
@@ -79,14 +79,14 @@ class CartDetails extends Component {
 
     }
     render() {
-        const{id,role}=this.context;
+       
      
         return (
             <div className='text-white text-center'>
                 <RestroNavigation></RestroNavigation>
                 <h2>Cart Details</h2><br>
                 </br>
-                cart context : {id} cart role : {role}
+              
 
                 {this.state.emptyFlag ?
 

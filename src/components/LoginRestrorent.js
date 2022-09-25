@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
 import UserProvider, { ButtonContext } from './BasicConstant'
 
-import BodyComponent from './BodyComponent'
+import BodyComponent from './Dashboard'
 import CartDetails from './CartDetails';
 import AllOrders from './AllOrders';
 import LoginErrorPage from './LoginErrorPage';
-import ChangeID from './ChangeID';
+
 import VegItemList from './VegItemList';
 import NonVegItemList from './NonVegItemList';
 
 
 export default class LoginRestrorent extends Component {
-    // static contextType = ButtonContext;
+
     static contextType = ButtonContext;
     constructor(props) {
         super(props)
@@ -115,12 +115,12 @@ export default class LoginRestrorent extends Component {
             this.state.showLoginPage = false;
             divv = <div>
                 <UserProvider >
-                    <ChangeID customerID={this.state.id} customerRole={this.state.role}></ChangeID>
-                    <BodyComponent></BodyComponent>
-                    <CartDetails></CartDetails>
+                   
+                    <BodyComponent customerID={this.state.id} customerRole={this.state.role}></BodyComponent>
+                    {/* <CartDetails></CartDetails>
                     <AllOrders></AllOrders>
                     <VegItemList></VegItemList>
-                    <NonVegItemList></NonVegItemList>
+                    <NonVegItemList></NonVegItemList> */}
 
                 </UserProvider>
 

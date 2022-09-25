@@ -5,7 +5,7 @@ import img2 from '../images/pic2.jpg'
 import img3 from '../images/pic3.jpg'
 
 import ButtonContext from './BasicConstant';
-import BodyComponent from './BodyComponent';
+import BodyComponent from './Dashboard';
 import RestroNavigation from './RestroNavigation';
 import RestroFooter from './RestroFooter';
 
