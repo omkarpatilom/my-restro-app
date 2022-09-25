@@ -38,11 +38,11 @@ function App() {
   return (
     <div style={myStyle}>
 
-<AboutUs01></AboutUs01>
+
 
       <UserProvider>
-      
-      
+
+
 
 
         <HeaderComponent />
