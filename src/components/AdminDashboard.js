@@ -6,7 +6,7 @@ import { ButtonContext } from './BasicConstant';
 import RestroFooter from './RestroFooter';
 import RestroNavigation from './RestroNavigation';
 
- class AdminDashboard extends Component {
+class AdminDashboard extends Component {
   static contextType = ButtonContext;
 
   constructor(props) {
@@ -63,7 +63,7 @@ import RestroNavigation from './RestroNavigation';
   }
   addToCart(id, name, price, quantity, IDD) {
     // chanegID(this.state.propID);
-    alert('==>',id, ' ', name, ' ', price, ' ', quantity, ' ', IDD);
+    alert('==>', id, ' ', name, ' ', price, ' ', quantity, ' ', IDD);
     this.setState({
       hideFlag: false,
       hideThisWindow: false
@@ -83,56 +83,44 @@ import RestroNavigation from './RestroNavigation';
   logout(e) {
     e.preventDefault();
     window.location = '/login'
-}
-deleteByID(id){
-  
-  
-  APICalls.deleteItemByID(id).then()
-  window.location = '/adminDashboard'
-}
-  
+  }
+  deleteByID(id) {
+
+
+    APICalls.deleteItemByID(id).then()
+    window.location = '/adminDashboard'
+  }
+
 
   render() {
-    
+
 
 
     return (
       <div className='text-white text-center' >
-       
-       <nav className="navbar navbar-expand-lg navbar-light text-white  bg-transparent">
-                    <div className="container-fluid">
-                        <a className="navbar-brand text-white" href="#"><b>Give a Meaningfull Life</b></a>
-                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span className="navbar-toggler-icon"></span>
-                        </button>
-                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul className="navbar-nav me-auto mb-2 mb-lg-0 text-white">
-                                <li className="nav-item">
-                                    <a className="nav-link text-white" href="/adminDashboard">DashBoard</a>
-                                </li><li className="nav-item">
-                                    <a className="nav-link text-white" href="/vegItemsList">Veg</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link text-white" href="/nonVegItemsList">Non - Veg</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link text-white" href="/drinkItemsList">Drinks</a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link text-white" href="/createItem">Add Item</a>
-                                </li>
-                                <li className="nav-item ">
-                                    <a className="nav-link text-white" href="/allOrders">All Orders</a>
-                                </li>
-                                
-                            </ul>
-                            <form className="d-flex">
 
-                                <button className="btn btn-outline-success" type="submit" onClick={this.logout.bind(this)}>Logout</button>
-                            </form>
-                        </div>
-                    </div>
-                </nav>
+        <nav className="navbar navbar-expand-lg navbar-light text-white  bg-transparent">
+          <div className="container-fluid">
+            <a className="navbar-brand text-white" href="#"><b>Give a Meaningfull Life</b></a>
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0 text-white">
+                <li className="nav-item">
+                  <a className="nav-link text-white" href="/adminDashboard">DashBoard</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link text-white" href="/createItem">Add Item</a>
+                </li>
+              </ul>
+              <form className="d-flex">
+
+                <button className="btn btn-outline-success" type="submit" onClick={this.logout.bind(this)}>Logout</button>
+              </form>
+            </div>
+          </div>
+        </nav>
 
 
         <h2>ADMIN Dhashboard</h2>
@@ -149,7 +137,7 @@ deleteByID(id){
                     <th scope="col">name</th>
                     <th scope="col">price</th>
                     <th scope="col">Delete</th>
-                   
+
 
                   </tr>
                 </thead>
@@ -162,10 +150,10 @@ deleteByID(id){
                           <td>{itms.itemName}</td>
                           <td>{itms.price}</td>
                           <td>
-                          <button onClick={() => this.deleteByID(itms.itemID)}>Delete Item</button>
-                           </td>
+                            <button onClick={() => this.deleteByID(itms.itemID)}>Delete Item</button>
+                          </td>
 
-                        
+
                         </tr>
                     )
                   }
@@ -176,7 +164,7 @@ deleteByID(id){
         </div>
         <RestroFooter></RestroFooter>
       </div>
-          ) 
-    }
+    )
   }
-  export default AdminDashboard
+}
+export default AdminDashboard
