@@ -34,6 +34,9 @@ class RestroNavigation extends Component {
                                 <li className="nav-item ">
                                     <a className="nav-link text-white" href="/allOrders">All Orders</a>
                                 </li>
+                                <li className="nav-item ">
+                                    <a className="nav-link text-white" href="/reviews">Reviews</a>
+                                </li>
                             </ul>
                             <form className="d-flex">
 

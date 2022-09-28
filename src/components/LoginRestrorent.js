@@ -9,6 +9,8 @@ import LoginErrorPage from './LoginErrorPage';
 
 import VegItemList from './VegItemList';
 import NonVegItemList from './NonVegItemList';
+import Dashboard from './Dashboard';
+import AdminDashboard from './AdminDashboard';
 
 
 export default class LoginRestrorent extends Component {
@@ -80,14 +82,14 @@ export default class LoginRestrorent extends Component {
 
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4">
-                        <div class="row">
-                            <div class="col-sm-4"></div>
-                            <div class="col-sm-4">
+                        <div className="row">
+                            <div className="col-sm-4"></div>
+                            <div className="col-sm-4">
 
                                 <br></br><br></br><br></br>
 
                             </div>
-                            <div class="col-sm-4"></div>
+                            <div className="col-sm-4"></div>
                         </div>
 
                         <form>
@@ -117,38 +119,38 @@ export default class LoginRestrorent extends Component {
 
                         <div className="col-sm-4"></div>
                 </div>
-                <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
+                <div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-4">
       
                   <br></br><br></br><br></br>
       
                 </div>
-                <div class="col-sm-4"></div>
-              </div><div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
+                <div className="col-sm-4"></div>
+              </div><div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-4">
       
                   <br></br><br></br><br></br>
       
                 </div>
-                <div class="col-sm-4"></div>
-              </div><div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
+                <div className="col-sm-4"></div>
+              </div><div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-4">
       
                   <br></br><br></br><br></br>
       
                 </div>
-                <div class="col-sm-4"></div>
-              </div><div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
+                <div className="col-sm-4"></div>
+              </div><div className="row">
+                <div className="col-sm-4"></div>
+                <div className="col-sm-4">
       
                   <br></br><br></br><br></br>
       
                 </div>
-                <div class="col-sm-4"></div>
+                <div className="col-sm-4"></div>
               </div>
                     </div>
                     
@@ -160,26 +162,26 @@ export default class LoginRestrorent extends Component {
             divv = <div>
                 <UserProvider >
 
-                    <BodyComponent customerID={this.state.id} customerRole={this.state.role}></BodyComponent>
-                    {/* <CartDetails></CartDetails>
-                    <AllOrders></AllOrders>
-                    <VegItemList></VegItemList>
-                    <NonVegItemList></NonVegItemList> */}
+                    <Dashboard customerID={this.state.id} customerRole={this.state.role}></Dashboard>
+                 
+
+                </UserProvider>
+            </div>;
+        }
+        if (resposneMessage === 'success' && resposneRole === 'admin') {
+
+            this.state.showLoginPage = false;
+            divv = <div>
+                <UserProvider >
+
+                    <AdminDashboard/>
+              
 
                 </UserProvider>
             </div>;
         }
 
-        // if (resposneMessage === 'success' && resposneRole === 'admin') {
-        //     this.setState({
-        //         showLoginPage: false
-        //     })
-        //     divv = <div>
-
-        //         <UserProvider customerID={this.state.id} role={this.state.role}></UserProvider>
-        //         <BodyComponent customerID={this.state.id} role={this.state.role}></BodyComponent>
-        //     </div>;
-        // }
+       
         if (resposneMessage === 'Invalide Credentials') {
             // this.setState({
             //     showLoginPage: false

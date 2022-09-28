@@ -82,7 +82,7 @@ class AllOrders extends Component {
                 <h2 className='text-center'>All Orders</h2><br>
                 </br>
 
-                {id} {role}
+            
 
                 {this.state.emptyFlag ?
 
@@ -133,7 +133,7 @@ class AllOrders extends Component {
                                             )
                                         }
                                     </tbody>
-                                </table><br></br><br></br><button>Pay Now </button>
+                                </table><br></br><br></br>
                             </div>
                         </div>
                         <div className="col-sm-2"></div>

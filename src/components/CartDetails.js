@@ -18,7 +18,7 @@ class CartDetails extends Component {
     }
 
     componentDidMount() {
-        APICalls.getAllOrdersByCusID(0).then((res) => {
+        APICalls.getAllOrdersByCusID(13).then((res) => {
             console.log("ddddd  ",res.data.length);
             // res.data.length=0;
             if (res.data.length > 0) {
@@ -144,7 +144,8 @@ class CartDetails extends Component {
                                             )
                                         }
                                     </tbody>
-                                </table><br></br><br></br><button onClick={() => this.payNow(this.state.cusID)}>Pay Now </button>
+                                </table><br></br><br></br>
+                                {/* <button onClick={() => this.payNow(this.state.cusID)}>Pay Now </button> */}
                             </div>
                         </div>
                         <div className="col-sm-2"></div>

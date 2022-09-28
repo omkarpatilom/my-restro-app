@@ -21,6 +21,8 @@ import Register from './components/Register';
 import HeaderComponent from './HeaderComponent';
 import VegItemList from './components/VegItemList';
 import Dashboard from './components/Dashboard';
+import CreateItem from './components/CreateItem';
+import AdminDashboard from './components/AdminDashboard';
 
 function App() {
   const flag = false;
@@ -48,7 +50,7 @@ function App() {
 
           <Routes>
 
-            <Route path="/review" element={<ReviewPage />} />
+            <Route path="/reviews" element={<ReviewPage />} />
             <Route path="/parnt" element={<ParentOne />} />
             <Route path="/RestrNav" element={<RestroNavigation />} />
             <Route path="/vegItemsList" element={<VegItemList />} />
@@ -64,6 +66,8 @@ function App() {
             <Route path='/allOrders' element={<AllOrders />} />
             <Route path='/loginError' element={<LoginErrorPage />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/createItem' element={<CreateItem />} />
+            <Route path="/adminDashboard" element={<AdminDashboard/>} />
           </Routes>
 
         </Router>

@@ -6,7 +6,7 @@ import { ButtonContext } from './BasicConstant';
 import RestroFooter from './RestroFooter';
 import RestroNavigation from './RestroNavigation';
 
- class Dashboard extends Component {
+ class AdminDashboard extends Component {
   static contextType = ButtonContext;
 
   constructor(props) {
@@ -80,6 +80,16 @@ import RestroNavigation from './RestroNavigation';
     );
 
   }
+  logout(e) {
+    e.preventDefault();
+    window.location = '/login'
+}
+deleteByID(id){
+  
+  
+  APICalls.deleteItemByID(id).then()
+  window.location = '/adminDashboard'
+}
   
 
   render() {
@@ -88,8 +98,44 @@ import RestroNavigation from './RestroNavigation';
 
     return (
       <div className='text-white text-center' >
-        <RestroNavigation></RestroNavigation>
-        <h2>User Dashboard</h2>
+       
+       <nav className="navbar navbar-expand-lg navbar-light text-white  bg-transparent">
+                    <div className="container-fluid">
+                        <a className="navbar-brand text-white" href="#"><b>Give a Meaningfull Life</b></a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul className="navbar-nav me-auto mb-2 mb-lg-0 text-white">
+                                <li className="nav-item">
+                                    <a className="nav-link text-white" href="/adminDashboard">DashBoard</a>
+                                </li><li className="nav-item">
+                                    <a className="nav-link text-white" href="/vegItemsList">Veg</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link text-white" href="/nonVegItemsList">Non - Veg</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link text-white" href="/drinkItemsList">Drinks</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link text-white" href="/createItem">Add Item</a>
+                                </li>
+                                <li className="nav-item ">
+                                    <a className="nav-link text-white" href="/allOrders">All Orders</a>
+                                </li>
+                                
+                            </ul>
+                            <form className="d-flex">
+
+                                <button className="btn btn-outline-success" type="submit" onClick={this.logout.bind(this)}>Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                </nav>
+
+
+        <h2>ADMIN Dhashboard</h2>
 
 
         <div className="row">
@@ -102,8 +148,8 @@ import RestroNavigation from './RestroNavigation';
                     <th scope="col">No</th>
                     <th scope="col">name</th>
                     <th scope="col">price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Add to cart</th>
+                    <th scope="col">Delete</th>
+                   
 
                   </tr>
                 </thead>
@@ -116,21 +162,10 @@ import RestroNavigation from './RestroNavigation';
                           <td>{itms.itemName}</td>
                           <td>{itms.price}</td>
                           <td>
-                            <select onChange={this.changeQuantity.bind(this)} >
-                              <option  >select</option>
-                              <option value="1" >1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                              <option value="6">6</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                              <option value="10">10</option>
-                            </select></td>
+                          <button onClick={() => this.deleteByID(itms.itemID)}>Delete Item</button>
+                           </td>
 
-                          <td><button onClick={() => this.addToCart(itms.itemID, itms.itemName, itms.price, this.state.itemQuantity, this.props.customerID)}>Add Item</button></td>
+                        
                         </tr>
                     )
                   }
@@ -144,4 +179,4 @@ import RestroNavigation from './RestroNavigation';
           ) 
     }
   }
-  export default Dashboard
+  export default AdminDashboard

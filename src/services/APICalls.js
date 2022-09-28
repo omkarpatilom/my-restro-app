@@ -7,6 +7,11 @@ const headers = {
     'mode': 'no-cors'
 }
 class APICalls {
+    
+
+    deleteItemByID(id) {
+        return axios.delete("http://localhost:3434/deleteItemByID/"+id, { headers, mode: 'no-cors', });
+    }
 
     getAllItems() {
         return axios.get("http://localhost:3434/getAllItems", { headers, mode: 'no-cors', });
@@ -54,6 +59,11 @@ class APICalls {
     createFeedback(employee) {
         console.log(employee);
         return axios.post("http://localhost:3434/createFeedback", employee, { headers, mode: 'no-cors', });
+    }
+
+    createItem(employee) {
+        console.log(employee);
+        return axios.post("http://localhost:3434/createItem", employee, { headers, mode: 'no-cors', });
     }
     
 
