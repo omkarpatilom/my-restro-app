@@ -5,7 +5,7 @@ import APICalls from '../services/APICalls';
 import img1 from '../images/pic1.jpg'
 import img2 from '../images/pic2.jpg'
 import img3 from '../images/pic3.jpg'
-import CartDetails from './CartDetails';
+
 import BodyComponent from './Dashboard';
 import { ButtonContext } from './BasicConstant';
 

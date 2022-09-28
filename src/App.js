@@ -11,7 +11,6 @@ import LoginRestrorent from './components/LoginRestrorent';
 
 import UserProvider, { ButtonContext } from './components/BasicConstant';
 
-import BodyComponent from './components/Dashboard';
 import FeedbackComponent from './components/FeedbackComponent';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';

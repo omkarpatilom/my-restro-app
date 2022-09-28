@@ -6,7 +6,7 @@ import { ButtonContext } from './BasicConstant';
 import RestroFooter from './RestroFooter';
 import RestroNavigation from './RestroNavigation';
 
-export default class Dashboard extends Component {
+ class Dashboard extends Component {
   static contextType = ButtonContext;
 
   constructor(props) {
@@ -38,7 +38,7 @@ export default class Dashboard extends Component {
     })
     console.log('changeQuantity');
 
-    this.addItem(e);
+    // this.addItem(e);
   }
   addItem(e) {
     console.log('addItem');
@@ -79,14 +79,7 @@ export default class Dashboard extends Component {
     );
 
   }
-  IncrementItem = () => {
-    this.setState({ clicks: this.state.clicks + 1 });
-    console.log(this.state.clicks);
-  }
-  DecreaseItem = () => {
-    this.setState({ clicks: this.state.clicks - 1 });
-    console.log(this.state.clicks);
-  }
+  
 
   render() {
     
@@ -150,3 +143,4 @@ export default class Dashboard extends Component {
           ) 
     }
   }
+  export default Dashboard

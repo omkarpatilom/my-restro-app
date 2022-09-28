@@ -55,6 +55,10 @@ export default class LoginRestrorent extends Component {
                     message: resp.data.message,
                     role: resp.data.role,
                     id: resp.data.id
+
+                    // message: "Invalide Credentials",
+                    // role: "admin",
+                    // id: 12
                 })
             }
         );
@@ -76,7 +80,15 @@ export default class LoginRestrorent extends Component {
 
                     <div className="col-sm-4"></div>
                     <div className="col-sm-4">
-                        login {this.state.role} {this.state.message} {this.state.id}
+                        <div class="row">
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-4">
+
+                                <br></br><br></br><br></br>
+
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
 
                         <form>
 
@@ -98,24 +110,56 @@ export default class LoginRestrorent extends Component {
 
                             <div className="text-center align-center">
                                 <p>Not a member? <a href="/register">Register</a></p>
-                                <p>or sign up with:</p>
+
 
                             </div>
                         </form>
 
-
+                        <div className="col-sm-4"></div>
+                </div>
+                <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+      
+                  <br></br><br></br><br></br>
+      
+                </div>
+                <div class="col-sm-4"></div>
+              </div><div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+      
+                  <br></br><br></br><br></br>
+      
+                </div>
+                <div class="col-sm-4"></div>
+              </div><div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+      
+                  <br></br><br></br><br></br>
+      
+                </div>
+                <div class="col-sm-4"></div>
+              </div><div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+      
+                  <br></br><br></br><br></br>
+      
+                </div>
+                <div class="col-sm-4"></div>
+              </div>
                     </div>
-                    <div className="col-sm-4"></div>
-                </div>;
+                    
+                
         }
         if (resposneMessage === 'success' && resposneRole === 'user') {
-            // this.setState({
-            //     showLoginPage: false
-            // })
+
             this.state.showLoginPage = false;
             divv = <div>
                 <UserProvider >
-                   
+
                     <BodyComponent customerID={this.state.id} customerRole={this.state.role}></BodyComponent>
                     {/* <CartDetails></CartDetails>
                     <AllOrders></AllOrders>
@@ -123,12 +167,6 @@ export default class LoginRestrorent extends Component {
                     <NonVegItemList></NonVegItemList> */}
 
                 </UserProvider>
-
-
-
-
-
-
             </div>;
         }
 

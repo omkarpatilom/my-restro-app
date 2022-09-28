@@ -18,34 +18,31 @@ class AboutUs extends Component {
 
 
         <h2>ABOUT US</h2>
-        <h1>Hello World!</h1>
-        <p>Resize the browser window to see the effect.</p>
-        <p>The columns will automatically stack on top of each other when the screen is less than 768px wide.</p>
-        <div className="row">
-          <div className="col-sm-1" style={{ "background-color": "lavender" }}>.col-sm-4</div>
-          <div className="col-sm-10" style={{ "background-color": "red" }} >
+       <div className="row">
+          <div className="col-sm-2"></div>
+          <div className="col-sm-8">
             <p>Who we are? <br></br>
               We're one Team... <br></br>
               There's no "I" in SOONap_Coders. The only way we'll succeed is by solving problems together and sharing lessons along the way. As individuals we own our actions, support and respect each other and embrace our differences.</p>
 
 
           </div>
-          <div className="col-sm-1" style={{ "background-color": "blue" }}>.col-sm-4</div>
+          <div className="col-sm-2" ></div>
         </div>
 
         <br></br><br></br>
         <div className="row">
-          <div className="col-sm-2" style={{ "background-color": "lavender" }}>.col-sm-4</div>
-          <div className="col-sm-8" style={{ "background-color": "red" }} >
+          <div className="col-sm-2" ></div>
+          <div className="col-sm-8" >
             <img className='text-center' src={`${process.env.PUBLIC_URL}/images/collage.jpeg`} style={{ "width": "9", "height": "50" }}
               alt="logo" />
           </div>
-          <div className="col-sm-2" style={{ "background-color": "blue" }}>.col-sm-4</div>
+          <div className="col-sm-2"></div>
         </div>
         <br></br><br></br><br></br>
         <div className="row">
-          <div className="col-sm-2" style={{ "background-color": "lavender" }}>.col-sm-4</div>
-          <div className="col-sm-8" style={{ "background-color": "red" }} >
+          <div className="col-sm-2" ></div>
+          <div className="col-sm-8"  >
             <p>
 
 
@@ -55,13 +52,13 @@ class AboutUs extends Component {
 
 
           </div>
-          <div className="col-sm-2" style={{ "background-color": "blue" }}>.col-sm-4</div>
+          <div className="col-sm-2" ></div>
         </div>
 
         <br></br><br></br><br></br>
         <div className="row">
-          <div className="col-sm-2" style={{ "background-color": "lavender" }}>.col-sm-4</div>
-          <div className="col-sm-8" style={{ "background-color": "red" }} >
+          <div className="col-sm-2" ></div>
+          <div className="col-sm-8" >
 
             <h4>Restaurant Timings:</h4>
             <p className='text-center'>
@@ -82,7 +79,7 @@ class AboutUs extends Component {
 
 
           </div>
-          <div className="col-sm-2" style={{ "background-color": "blue" }}>.col-sm-4</div>
+          <div className="col-sm-2" ></div>
         </div>
 
 
