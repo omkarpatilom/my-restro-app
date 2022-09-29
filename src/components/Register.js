@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-
 import APICalls from '../services/APICalls';
-
-import { ButtonContext } from './BasicConstant';
 import RestroFooter from './RestroFooter';
-
 export default class Register extends Component {
 
 
@@ -17,7 +13,19 @@ export default class Register extends Component {
       items: [],
       cusID: this.props.id,
       role: this.props.customerID,
-      clicks: 0
+      clicks: 0,
+      fullName:"",
+      mail: "",
+      userAddress:"",
+      password: "",
+      gender: "",
+      contact: "",
+      age: "",
+      bloodGroup:"",
+      role: "",
+      yearofest: 0,
+      membername: "",
+      regNo: ""
     }
 
   }
@@ -76,28 +84,24 @@ export default class Register extends Component {
       fullName: this.state.fullName,
       mail: this.state.mail,
       userAddress: this.state.userAddress,
-      password: this.state.password,
-      gender: this.state.gender,
-      contact: this.state.contact,
-      age: this.state.age,
-      bloodGroup: this.state.bloodGroup,
-      role: this.state.role,
-      yearofest: 0,
-      membername: "",
-      regNo: ""
+      password: this.state.password,      
+      contact: this.state.contact,     
+      role: "user"
+    
     }
 
+
     console.log(hospitalObject);
-    APICalls.createUser(hospitalObject).then(
+    APICalls.createCustomerDetails(hospitalObject).then(
       (res) =>
         console.log(res.data.fullName)
 
     )
+    window.location='/login';
   }
-  static contextType = ButtonContext;
+ 
   render() {
-    const { cusID, role } = this.context
-    // console.log('BodyComponent cusID=', cusID, ' role=', role);
+    
 
     return (
       <div className='text-white ' >

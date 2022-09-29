@@ -65,6 +65,10 @@ class APICalls {
         console.log(employee);
         return axios.post("http://localhost:3434/createItem", employee, { headers, mode: 'no-cors', });
     }
+    createCustomerDetails(employee) {
+        console.log(employee);
+        return axios.post("http://localhost:3434/createCustomerDetails", employee, { headers, mode: 'no-cors', });
+    }
     
 
     getAllFeedbacks() {

@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 
 import APICalls from '../services/APICalls';
 
-import { ButtonContext } from './BasicConstant';
+
 import RestroFooter from './RestroFooter';
 import RestroNavigation from './RestroNavigation';
 
  class Dashboard extends Component {
-  static contextType = ButtonContext;
+
 
   constructor(props) {
     super(props);
