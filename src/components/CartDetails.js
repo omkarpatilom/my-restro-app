@@ -18,7 +18,7 @@ class CartDetails extends Component {
     }
 
     componentDidMount() {
-        APICalls.getAllOrdersByCusID(13).then((res) => {
+        APICalls.getAllOrdersByCusID(25).then((res) => {
             console.log("ddddd  ",res.data.length);
             // res.data.length=0;
             if (res.data.length > 0) {

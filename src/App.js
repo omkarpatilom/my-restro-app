@@ -23,6 +23,7 @@ import VegItemList from './components/VegItemList';
 import Dashboard from './components/Dashboard';
 import CreateItem from './components/CreateItem';
 import AdminDashboard from './components/AdminDashboard';
+import RegisterAdmin from './components/RegisterAdmin';
 
 function App() {
   const flag = false;
@@ -66,6 +67,7 @@ function App() {
             <Route path='/allOrders' element={<AllOrders />} />
             <Route path='/loginError' element={<LoginErrorPage />} />
             <Route path='/register' element={<Register />} />
+            <Route path='/registerAdmin' element={<RegisterAdmin />} />
             <Route path='/createItem' element={<CreateItem />} />
             <Route path="/adminDashboard" element={<AdminDashboard/>} />
           </Routes>
