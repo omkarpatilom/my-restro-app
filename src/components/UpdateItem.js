@@ -3,17 +3,34 @@ import { Link } from 'react-router-dom';
 import APICalls from '../services/APICalls';
 import RestroFooter from './RestroFooter';
 
-class CreateItem extends Component {
+class UpdateItem extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-
+      itemId: this.props.itemID,
       itemName: "",
       itemCategory: "",
       price: 0,
-      imageFile:{}
+      imageFile: {}
     }
+  }
+  componentDidMount() {
+
+    APICalls.getItemsByID(this.props.itemId).then(
+      (resp) =>
+        this.setState({
+          itemCategory: resp.data.itemCategory,
+          itemName: resp.data.itemName,
+          price: resp.data.price
+        })
+
+    );
+
+    console.log('====================================')
+    console.log('==>',this.props.itemId)
+    console.log('====================================')
+
   }
 
   imageFileChange(e) {
@@ -45,13 +62,10 @@ class CreateItem extends Component {
   submitForm(e) {
     e.preventDefault();
     let hospitalObject = {
-
-
-
+      itemID: this.props.itemId,
       itemName: this.state.itemName,
       itemCategory: this.state.itemCategory,
-      price: this.state.price,
-      imageFile:this.state.imageFile
+      price: this.state.price
     }
     console.log('====================================');
     console.log(hospitalObject);
@@ -60,6 +74,7 @@ class CreateItem extends Component {
 
 
     )
+
     window.location = '/adminDashboard'
 
 
@@ -101,17 +116,17 @@ class CreateItem extends Component {
                     <input placeholder="Price" name="price" className="form-control" value={this.state.price} onChange={this.priceChange.bind(this)} />
                   </div>
                   <br></br>
-                  <div className="form-group">
+                  {/* <div className="form-group">
                     <label> Add Image: </label>
                     <input type="file" placeholder="Attach File" name="image" className="form-control" value={this.state.imageFile} onChange={this.imageFileChange.bind(this)} />
                   </div>
-                  <br></br>
+                  <br></br> */}
 
 
 
 
 
-                  <button className="btn btn-outline-primary" style={{ marginLeft: "100px" }} onClick={this.submitForm.bind(this)}>Save</button>
+                  <button className="btn btn-outline-primary" style={{ marginLeft: "100px" }} onClick={this.submitForm.bind(this)}>Update</button>
 
                 </form>
                 <Link to='/adminDashboard'>Back</Link>
@@ -128,4 +143,4 @@ class CreateItem extends Component {
   }
 }
 
-export default CreateItem
+export default UpdateItem

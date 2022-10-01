@@ -1,17 +1,22 @@
 import React, { Component } from 'react'
 
+
 import APICalls from '../services/APICalls';
 
 import { ButtonContext } from './BasicConstant';
 import RestroFooter from './RestroFooter';
-import RestroNavigation from './RestroNavigation';
+
+import UpdateItem from './UpdateItem';
 
 class AdminDashboard extends Component {
-  static contextType = ButtonContext;
+ 
 
   constructor(props) {
     super(props);
     this.state = {
+      itemId: "",
+      showDashboard: true,
+      showUpdate: false,
       successMessage: "",
       itemName: "",
       itemQuantity: "",
@@ -91,13 +96,26 @@ class AdminDashboard extends Component {
     window.location = '/adminDashboard'
   }
 
+  getItemByID(id) {
+    // return <UpdateItem itemId={id}></UpdateItem>
+    this.setState({
+      itemId: id,
+      showDashboard: false
+    })
+  }
+
+
+  static contextType=ButtonContext;
 
   render() {
+    const {id,role}=this.context
 
 
 
     return (
       <div className='text-white text-center' >
+        <h2>Admin Dashboard</h2>
+        {id}  {role}
 
         <nav className="navbar navbar-expand-lg navbar-light text-white  bg-transparent">
           <div className="container-fluid">
@@ -123,45 +141,54 @@ class AdminDashboard extends Component {
         </nav>
 
 
-        <h2>ADMIN Dhashboard</h2>
+        {
+          this.state.showDashboard ?
+            <div className="row">
+              <div className="col-sm-2"></div>
+              <div className="col-sm-6">
+                <div className=' container  '>
+                  <table className="table  text-white ">
+                    <thead >
+                      <tr>
+                        <th scope="col">Sr. No.</th>
+                        <th scope="col">NAME</th>
+                        <th scope="col">PRICE</th>
+                        <th scope="col">DELETE</th>
+                        <th scope="col">UPDATE</th>
 
 
-        <div className="row">
-          <div className="col-sm-2"></div>
-          <div className="col-sm-6">
-            <div className=' container  '>
-              <table className="table table-bordered text-white">
-                <thead >
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">name</th>
-                    <th scope="col">price</th>
-                    <th scope="col">Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {
+                        this.state.items.map(
+                          (itms, index) =>
+                            <tr key={index}>
+                              <th scope="row">{itms.itemID}</th>
+                              <td>{itms.itemName}</td>
+                              <td>{itms.price}</td>
+                              <td>
+                                <button className='btn btn-danger' onClick={() => this.deleteByID(itms.itemID)}>Delete Item</button>
+                              </td>
+                              <td>
+                                <button className='btn btn-success' onClick={() => this.getItemByID(itms.itemID)}>UPDATE</button>
+                              </td>
 
 
-                  </tr>
-                </thead>
-                <tbody>
-                  {
-                    this.state.items.map(
-                      (itms, index) =>
-                        <tr key={index}>
-                          <th scope="row">{itms.itemID}</th>
-                          <td>{itms.itemName}</td>
-                          <td>{itms.price}</td>
-                          <td>
-                            <button onClick={() => this.deleteByID(itms.itemID)}>Delete Item</button>
-                          </td>
-
-
-                        </tr>
-                    )
-                  }
-                </tbody>
-              </table>
+                            </tr>
+                        )
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+            :
+            <UpdateItem itemId={this.state.itemId}></UpdateItem>
+        }
+
+
+
         <RestroFooter></RestroFooter>
       </div>
     )

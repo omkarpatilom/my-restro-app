@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import APICalls from '../services/APICalls';
+import { ButtonContext } from './BasicConstant';
 
 
 import RestroFooter from './RestroFooter';
@@ -80,10 +81,10 @@ import RestroNavigation from './RestroNavigation';
     );
 
   }
-  
+  static contextType=ButtonContext;
 
   render() {
-    
+    const {id,role}=this.context
 
 
     return (
@@ -91,12 +92,13 @@ import RestroNavigation from './RestroNavigation';
         <RestroNavigation></RestroNavigation>
         <h2>User Dashboard</h2>
 
+      {id} {role}
 
         <div className="row">
           <div className="col-sm-2"></div>
           <div className="col-sm-6">
             <div className=' container  '>
-              <table className="table table-bordered text-white">
+              <table className="table  text-white">
                 <thead >
                   <tr>
                     <th scope="col">No</th>

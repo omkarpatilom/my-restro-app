@@ -24,6 +24,7 @@ import Dashboard from './components/Dashboard';
 import CreateItem from './components/CreateItem';
 import AdminDashboard from './components/AdminDashboard';
 import RegisterAdmin from './components/RegisterAdmin';
+import UpdateItem from './components/UpdateItem';
 
 function App() {
   const flag = false;
@@ -40,6 +41,8 @@ function App() {
 
       <UserProvider>
 
+      {/* <Dashboard></Dashboard> */}
+    
 
 
 
@@ -69,6 +72,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/registerAdmin' element={<RegisterAdmin />} />
             <Route path='/createItem' element={<CreateItem />} />
+            <Route path='/updateItem/:id' element={<UpdateItem />} />
             <Route path="/adminDashboard" element={<AdminDashboard/>} />
           </Routes>
 

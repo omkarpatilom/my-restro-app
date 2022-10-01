@@ -65,6 +65,16 @@ class APICalls {
         console.log(employee);
         return axios.post("http://localhost:3434/createItem", employee, { headers, mode: 'no-cors', });
     }
+
+    getItemsByID(itemID) {
+     
+        return axios.get("http://localhost:3434/getItemsByID/" + itemID, { headers, mode: 'no-cors', });
+    }
+
+    updateItem(employee) {
+        console.log(employee);
+        return axios.post("http://localhost:3434/updateItem", employee, { headers, mode: 'no-cors', });
+    }
     createCustomerDetails(employee) {
         console.log(employee);
         return axios.post("http://localhost:3434/createCustomerDetails", employee, { headers, mode: 'no-cors', });

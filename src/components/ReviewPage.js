@@ -25,56 +25,46 @@ class ReviewPage extends Component {
   }
   render() {
 
-    return ( 
+    return (
       <div className=' text-center' >
         <RestroNavigation></RestroNavigation>
-
-
-
-
         <br></br><h1 className=' text-white'>Reviews</h1><br></br><br></br>
-
-
-
-
         <div className="row">
           <div className="col-sm-2"></div>
-          <div className="col-sm-8">
-            <h4></h4>
-          </div>
+          <div className="col-sm-8"></div>
           <div className="col-sm-2"></div>
         </div>
 
         <br></br>
-        <div className="row">
-          <div className="col-sm-3"></div>
-          <div className="col-sm-6" >
+        <div className='container'>
+          <div className='row'>
 
             {
               this.state.items.map(
                 (itms, index) =>
-                  <div class="card-columns" key={index}>
-                    <div class="card bg-light mb-3">
-                      <div class="card-body ">
-                        <h4 className="card-title text-center">{itms.feedbackName}</h4>
-                        <p className="card-text text-left">
-                          <br></br>
-                          {itms.feedbackDesc}
-                          <br></br>                        </p>
-                        <p><b></b></p><br></br>
-                       
+                  <div className="col-sm-4">
+                    <div class="card-columns" key={index}>
+                      <div class="card bg-light mb-3 border-success">
+                        <div class="card-body ">
+                          <h4 className="card-title text-center text-danger">{itms.feedbackName}</h4>
+                          <p className="card-text text-left text-primary ">
+                            <br></br>
+                            {itms.feedbackDesc}
+                            <br></br>
+                          </p>
+                          <p>
+                            <b></b></p><br></br>
+                        </div>
                       </div>
+                      <br></br>
                     </div>
-                    <br></br>
                   </div>
-
-
               )
             }
-
+            <div className="col-sm-4"></div>
           </div>
-          <div className="col-sm-3" ></div>
-        </div><RestroFooter />
+        </div>
+        <RestroFooter />
       </div >
     )
   }
