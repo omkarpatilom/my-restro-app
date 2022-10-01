@@ -90,8 +90,6 @@ class AdminDashboard extends Component {
     window.location = '/login'
   }
   deleteByID(id) {
-
-
     APICalls.deleteItemByID(id).then()
     window.location = '/adminDashboard'
   }

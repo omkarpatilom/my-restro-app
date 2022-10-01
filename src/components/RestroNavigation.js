@@ -31,9 +31,9 @@ class RestroNavigation extends Component {
                                 <li className="nav-item">
                                     <a className="nav-link text-white" href="/cart">Cart</a>
                                 </li>
-                                <li className="nav-item ">
+                                {/* <li className="nav-item ">
                                     <a className="nav-link text-white" href="/allOrders">All Orders</a>
-                                </li>
+                                </li> */}
                                 <li className="nav-item ">
                                     <a className="nav-link text-white" href="/reviews">Reviews</a>
                                 </li>

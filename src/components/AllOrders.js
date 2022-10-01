@@ -73,16 +73,17 @@ class AllOrders extends Component {
         }).then();
 
     }
-    static contextType=ButtonContext;
+
+    static contextType = ButtonContext;
     render() {
-        const {id,role,changeID}=this.context
+        const { id, role, changeID } = this.context
         return (
             <div className='text-white'>
                 <RestroNavigation></RestroNavigation>
                 <h2 className='text-center'>All Orders</h2><br>
                 </br>
 
-            
+
 
                 {this.state.emptyFlag ?
 
@@ -115,6 +116,8 @@ class AllOrders extends Component {
                                             <th scope="col">payStatus</th>
                                             <th scope="col">itemQuantity</th>
                                             <th scope="col">priceWithQuantity</th>
+
+
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -127,8 +130,6 @@ class AllOrders extends Component {
                                                         <td>{itms.payStatus}</td>
                                                         <td>{itms.itemQuantity}</td>
                                                         <td>{itms.priceWithQuantity}</td>
-
-
                                                     </tr>
                                             )
                                         }
@@ -136,11 +137,11 @@ class AllOrders extends Component {
                                 </table><br></br><br></br>
                             </div>
                         </div>
-                        <div className="col-sm-2"></div>
+                        <div className="col-sm-2"><button onClick={() => this.payNowByUserId()}>Pay Now</button></div>
                     </div>
 
                 }
-<RestroFooter/>
+                <RestroFooter />
             </div>
         )
     }

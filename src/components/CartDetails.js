@@ -1,26 +1,33 @@
 import React, { Component } from 'react'
 import APICalls from '../services/APICalls';
+import Billing from './Billing';
 
 import RestroFooter from './RestroFooter';
 import RestroNavigation from './RestroNavigation';
 
 class CartDetails extends Component {
-   
+
     constructor(props) {
         super(props)
         this.state = {
             emptyFlag: false,
+            showCartFlag:true,
             itemName: "",
             itemQuantity: "",
             items: [],
-            cusID: 33
+            cusID: this.props.userID
         }
+        console.log('====================================');
+        console.log("cart details state : ", this.state.cusID);
+        console.log("cart details props : ", this.props.userID);
+        console.log('====================================');
     }
 
     componentDidMount() {
-        APICalls.getAllOrdersByCusID(25).then((res) => {
-            console.log("ddddd  ",res.data.length);
-            // res.data.length=0;
+        console.log('cart componentDidMount  props:', this.props.userID);
+        // APICalls.getAllOrdersByCusID(this.props.userID).then((res) => {
+            APICalls.getAllOrdersByCusID(13).then((res) => {
+
             if (res.data.length > 0) {
                 this.setState({
                     items: res.data,
@@ -28,7 +35,6 @@ class CartDetails extends Component {
             } else {
                 this.setState({ emptyFlag: true });
             }
-
         });
     }
 
@@ -72,25 +78,39 @@ class CartDetails extends Component {
         }).then();
 
     }
-    payNow(id) {
-        APICalls.payNow(id).then()
 
-
+    deleteOrderByID(id) {
+        APICalls.deleteOrderByID(id).then(
+            alert('Order Deleted')
+        )
+        window.location='/cart';
 
     }
+
+    payNowByUserId(id) {
+        console.log('====================================');
+        console.log(' cart payNowByUserId : ', id);
+        console.log('====================================');
+
+        this.setState({
+            showCartFlag:false
+        })
+        APICalls.payNow(id).then()
+    }
     render() {
-       
-     
+
+
         return (
             <div className='text-white text-center'>
                 <RestroNavigation></RestroNavigation>
-                <h2>Cart Details</h2><br>
-                </br>
-              
+
+
 
                 {this.state.emptyFlag ?
 
                     <div>
+                        <h2>Cart Details</h2><br>
+                        </br>
                         <div className="row">
                             <div className="col-sm-2"></div>
                             <div className="col-sm-6">
@@ -100,60 +120,61 @@ class CartDetails extends Component {
 
                             </div>
                             <div className="col-sm-2"></div>
-
                         </div>
+                    </div> : ''}
 
-                    </div>
-
-                    :
-                    <div className="row text-white ">
-                        <div className="col-sm-2"></div>
-                        <div className="col-sm-6">
-                           
-                            <div className='container '>
-                                <table className="table table-bordered text-white text-center">
-                                    <thead>
-                                        <tr>
-
-
-
-                                            <th scope="col">orderID</th>
-                                            <th scope="col">itemName</th>
-                                            <th scope="col">totalPrice</th>
-                                            <th scope="col">itemQuantity</th>
-                                            <th scope="col">itemPrice</th>
-                                            <th scope="col">totalPrice</th>
-
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            this.state.items.map(
-                                                (itms, index) =>
-                                                    <tr key={index}>
-                                                        <td>{itms.orderID}</td>
-                                                        <td>{itms.itemName}</td>
-                                                        <td>{itms.totalPrice}</td>
-                                                        <td>{itms.itemQuantity}</td>
-                                                        <td>{itms.itemPrice}</td>
-                                                        <td>{itms.totalPrice}</td>
-
-                                                    </tr>
-                                            )
-                                        }
-                                    </tbody>
-                                </table><br></br><br></br>
-                                {/* <button onClick={() => this.payNow(this.state.cusID)}>Pay Now </button> */}
+                {
+                this.state.showCartFlag ?
+                    <>
+                        <div className="row text-white ">
+                            <h2>Cart Details</h2><br>
+                            </br>
+                            <div className="col-sm-2"></div>
+                            <div className="col-sm-6">
+                                <div className='container '>
+                                    <table className="table table-bordered text-white text-center">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">orderID</th>
+                                                <th scope="col">itemName</th>
+                                                <th scope="col">totalPrice</th>
+                                                <th scope="col">itemQuantity</th>
+                                                <th scope="col">itemPrice</th>
+                                                <th scope="col">totalPrice</th>
+                                                <th scope="col">Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                this.state.items.map(
+                                                    (itms, index) =>
+                                                        <tr key={index}>
+                                                            <td>{itms.orderID}</td>
+                                                            <td>{itms.itemName}</td>
+                                                            <td>{itms.totalPrice}</td>
+                                                            <td>{itms.itemQuantity}</td>
+                                                            <td>{itms.itemPrice}</td>
+                                                            <td>{itms.totalPrice}</td>
+                                                            <td><button onClick={() => this.deleteOrderByID(itms.orderID)}>Delete</button></td>
+                                                        </tr>
+                                                )
+                                            }
+                                        </tbody>
+                                    </table><br></br><br></br>
+                                    {/* <button onClick={() => this.payNowByUserId(this.state.cusID)}>Pay Now </button> */}
+                                </div>
                             </div>
+                            <div className="col-sm-2"> <button onClick={() => this.payNowByUserId(this.state.cusID)}>Place order now</button></div>
                         </div>
-                        <div className="col-sm-2"></div>
-                    </div>
-
+                    </> :
+                    <>
+                       
+                    <Billing  cusID={this.state.cusID}></Billing>
+                    </>
+                   
                 }
 
-<RestroFooter/>
+                <RestroFooter />
             </div>
         )
     }

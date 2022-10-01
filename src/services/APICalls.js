@@ -12,6 +12,9 @@ class APICalls {
     deleteItemByID(id) {
         return axios.delete("http://localhost:3434/deleteItemByID/"+id, { headers, mode: 'no-cors', });
     }
+    deleteOrderByID(id) {
+        return axios.delete("http://localhost:3434/deleteOrderByID/"+id, { headers, mode: 'no-cors', });
+    }
 
     getAllItems() {
         return axios.get("http://localhost:3434/getAllItems", { headers, mode: 'no-cors', });
@@ -55,6 +58,11 @@ class APICalls {
     payNow(id) {
         return axios.get("http://localhost:3434/payNow/" + id, { headers, mode: 'no-cors', });
     }
+
+    getBill(id) {
+        return axios.get("http://localhost:3434/getBill/" + id, { headers, mode: 'no-cors', });
+    }
+    
 
     createFeedback(employee) {
         console.log(employee);

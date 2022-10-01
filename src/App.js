@@ -25,6 +25,7 @@ import CreateItem from './components/CreateItem';
 import AdminDashboard from './components/AdminDashboard';
 import RegisterAdmin from './components/RegisterAdmin';
 import UpdateItem from './components/UpdateItem';
+import Billing from './components/Billing';
 
 function App() {
   const flag = false;
@@ -47,6 +48,7 @@ function App() {
 
 
         <HeaderComponent />
+        {/* <RestroNavigation></RestroNavigation> */}
 
 
 
@@ -74,6 +76,8 @@ function App() {
             <Route path='/createItem' element={<CreateItem />} />
             <Route path='/updateItem/:id' element={<UpdateItem />} />
             <Route path="/adminDashboard" element={<AdminDashboard/>} />
+            <Route path="/billing" element={<Billing/>} />
+
           </Routes>
 
         </Router>
